@@ -3,8 +3,19 @@
     src: local("Anthony"), url("./assets/fonts/Anthony.woff2") format("woff")
 }
 
+@font-face {
+    font-family: "Ruda-VariableFont";
+    src: local("Ruda-VariableFont"), url("./assets/fonts/Ruda-VariableFont_wght.ttf") format("ttf");
+}
+
 body {
-    background: blanchedalmond;
+    background: #f1f1f1;
+    font-family: Ruda-VariableFont, serif;
+}
+
+p {
+    font-size: 0.7em;
+    font-weight: 100;
 }
 
 a:hover {
@@ -26,10 +37,20 @@ header > div {
 }
 
 .typo_header {
+    font-family: "Anthony" ,serif;
     font-size: 1em;
-    font-family: Anthony, serif;
+    font-weight: 100;
 }
 
 header > .right {
     text-align: end;
+    & h1 {
+        font-family: Ruda-VariableFont;
+        font-size: 0.8em;
+    };
+}
+
+.box__small {
+    padding: 0 10px;
+    max-width: 400px;
 }
