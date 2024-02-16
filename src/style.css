@@ -55,8 +55,31 @@ header > .right {
     };
 }
 
+footer {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+}
+
 .box__small {
     padding: 0 10px;
     max-width: 400px;
     border-right: 1px dotted black;
+}
+
+.fonts {
+    display: flex;
+    flex-flow: row;
+    gap: 10px;
+    & p {
+        margin: 1px;
+    }
+}
+
+.fonts > div {
+    display: flex;
+    flex-flow: column;
+    & p {
+        margin: 1px;
+    }
 }
