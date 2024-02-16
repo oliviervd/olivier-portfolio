@@ -1,11 +1,16 @@
 @font-face {
-    font-family: "Anthony";
+    font-family: "Anthony", serif;
     src: local("Anthony"), url("./assets/fonts/Anthony.woff2") format("woff")
 }
 
 @font-face {
-    font-family: "Ruda-VariableFont";
+    font-family: "Ruda-VariableFont", serif;
     src: local("Ruda-VariableFont"), url("./assets/fonts/Ruda-VariableFont_wght.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "Qaundo-Regular", serif;
+    src: local("Quando-Regular"), url("./assets/fonts/Quando-Regular.ttf")
 }
 
 body {
@@ -14,7 +19,7 @@ body {
 }
 
 p {
-    font-size: 0.7em;
+    font-size: 0.8em;
     font-weight: 100;
 }
 
@@ -38,7 +43,7 @@ header > div {
 
 .typo_header {
     font-family: "Anthony" ,serif;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: 100;
 }
 
@@ -53,4 +58,5 @@ header > .right {
 .box__small {
     padding: 0 10px;
     max-width: 400px;
+    border-right: 1px dotted black;
 }
