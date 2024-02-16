@@ -25,7 +25,6 @@ p {
 
 a:hover {
     border-bottom: 1px solid black;
-    cursor: grab;
 }
 
 header {
@@ -82,4 +81,8 @@ footer {
     & p {
         margin: 1px;
     }
+}
+
+.not-yet{
+    cursor: wait;
 }
