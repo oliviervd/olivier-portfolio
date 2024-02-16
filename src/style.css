@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "Anthony";
+    src: local("Anthony"), url("./assets/fonts/Anthony.woff2") format("woff")
+}
+
+body {
+    background: blanchedalmond;
+}
+
+a:hover {
+    border-bottom: 1px solid black;
+    cursor: grab;
+}
+
+header {
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+header > div {
+    display: flex;
+    flex-flow: row;
+    justify-content: end;
+    gap: 20px;
+}
+
+.typo_header {
+    font-size: 1em;
+    font-family: Anthony, serif;
+}
+
+header > .right {
+    text-align: end;
+}
