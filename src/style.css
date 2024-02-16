@@ -1,15 +1,15 @@
 @font-face {
-    font-family: "Anthony", serif;
+    font-family: "Anthony";
     src: local("Anthony"), url("./assets/fonts/Anthony.woff2") format("woff")
 }
 
 @font-face {
-    font-family: "Ruda-VariableFont", serif;
+    font-family: "Ruda-VariableFont";
     src: local("Ruda-VariableFont"), url("./assets/fonts/Ruda-VariableFont_wght.ttf") format("ttf");
 }
 
 @font-face {
-    font-family: "Qaundo-Regular", serif;
+    font-family: "Qaundo-Regular";
     src: local("Quando-Regular"), url("./assets/fonts/Quando-Regular.ttf")
 }
 
