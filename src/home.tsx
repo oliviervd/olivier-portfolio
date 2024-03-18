@@ -9,7 +9,6 @@ export function App() {
 		<div>
 			<Header/>
 			<div class={"box__small"}>
-				<p>IS CURRENTLY MIGRATING FROM ONE CLOUD TO ANOTHER.</p>
 				<About/>
 			</div>
 			<Footer/>

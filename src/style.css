@@ -4,6 +4,11 @@
 }
 
 @font-face {
+    font-family: "Basalte-Fond";
+    src: local("Basalte-Fond"), url("assets/fonts/Basalte-Fond.woff") format("woff")
+}
+
+@font-face {
     font-family: "Ruda-VariableFont";
     src: local("Ruda-VariableFont"), url("assets/fonts/Ruda-VariableFont_wght.ttf") format("ttf");
 }
@@ -41,7 +46,7 @@ header > div {
 }
 
 .typo_header {
-    font-family: "Anthony" ,serif;
+    font-family: "Basalte-Fond" ,serif;
     font-size: 1.8em;
     font-weight: 100;
 }
