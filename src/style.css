@@ -32,6 +32,13 @@ a:hover {
     border-bottom: 1px solid black;
 }
 
+.inactive{
+    text-decoration: line-through;
+    :hover {
+        border-bottom:none
+    }
+}
+
 header {
     padding: 0 10px;
     display: grid;
