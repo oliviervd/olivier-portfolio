@@ -4,6 +4,8 @@
 header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    border-bottom: #333333 3px solid;
+    margin: 0 10px;
 }
 
 header > div {
@@ -22,7 +24,6 @@ header > div {
 
 header > .header__nav {
     text-align: end;
-    margin-right: 10px;
     & h1 {
         font-family: "Basalte-Fond", serif;
         font-size: 1em;
