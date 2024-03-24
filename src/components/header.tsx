@@ -1,5 +1,5 @@
 import HamburgerButton from "../elements/hamburgerButton";
-import "../style/header.css"
+import "../style/navigation.css"
 import {useState} from "preact/hooks";
 
 const Header = (props) => {
