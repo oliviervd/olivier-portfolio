@@ -1,0 +1,91 @@
+/* STYLESHEET FOR NAV */
+/* DESKTOP */
+
+header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+header > div {
+    display: flex;
+    flex-flow: row;
+    justify-content: end;
+    gap: 20px;
+}
+
+
+.typo_header {
+    font-family: "Basalte-Fond" ,serif;
+    font-size: 1.8em;
+    font-weight: 100;
+}
+
+
+
+header > .header__nav {
+    text-align: end;
+    & h1 {
+        font-family: "Basalte-Fond", serif;
+        font-size: 1em;
+    };
+}
+
+.header__nav-button{
+    display: none;
+}
+
+/* MOBILE */
+
+@media only screen and (max-width: 600px) {
+    .header__nav {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        flex-flow: column;
+        gap: 0px;
+        height: 100vh;
+        width:100vw;
+        text-align: center;
+    }
+
+    .off-screen {
+        transform: translateX(-100%);
+        transition: transform ease-in 500ms;
+    }
+
+    .on-screen {
+        transform: translateX(0%);
+        transition: transform ease-in 500ms;
+    }
+
+    .header__nav .typo_header {
+        color: black;
+        font-size: 2em;
+        text-align: center;
+        margin: 10px 0px;
+        transform: translateX(-2.5%)
+    }
+
+    .header__nav-button{
+        display: block;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+    }
+}
+
+.hamburger {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+}
