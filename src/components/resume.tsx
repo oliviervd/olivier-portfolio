@@ -20,7 +20,7 @@ const Resume = (props) => {
             <div className={"experience"}>
                 <p>2018 – 2019</p>
                 <p>project employee</p>
-                <p>meemoo (former PACKED)</p>
+                <p>meemoo</p>
             </div>
             <div className={"experience"}>
                 <p>2017</p>

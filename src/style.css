@@ -1,25 +1,25 @@
 @font-face {
-    font-family: "Anthony";
+    font-family: "Anthony" ,"Times New Roman";
     src: local("Anthony"), url("assets/fonts/Anthony.woff2") format("woff")
 }
 
 @font-face {
-    font-family: "IBMPlexMono-Bold";
+    font-family: "IBMPlexMono-Bold","Times New Roman";
     src: local("IBMPlexMono-Bold"), url("assets/fonts/IBMPlexMono-Bold.otf") format("woff")
 }
 
 @font-face {
-    font-family: "Basalte-Fond";
+    font-family: "Basalte-Fond","Times New Roman";
     src: local("Basalte-Fond"), url("assets/fonts/Basalte-Fond.woff") format("woff")
 }
 
 @font-face {
-    font-family: "Ruda-VariableFont";
+    font-family: "Ruda-VariableFont","Times New Roman";
     src: local("Ruda-VariableFont"), url("assets/fonts/Ruda-VariableFont_wght.ttf") format("ttf");
 }
 
 @font-face {
-    font-family: "Qaundo-Regular";
+    font-family: "Qaundo-Regular","Times New Roman";
     src: local("Quando-Regular"), url("assets/fonts/Quando-Regular.ttf")
 }
 
@@ -71,7 +71,7 @@ header > div {
 header > .right {
     text-align: end;
     & h1 {
-        font-family: Ruda-VariableFont;
+        font-family: "Ruda-VariableFont", serif;
         font-size: 1em;
     };
 }
@@ -140,7 +140,12 @@ footer {
 
     & p {
         margin-bottom: 5px;
-        margin-top: 0px;
+        margin-top: 0;
+    }
+
+    & p:last-child {
+        text-align: end;
+        margin-right: 20px;
     }
 
 }
@@ -152,7 +157,7 @@ footer {
 
     & p {
        margin-bottom: 5px;
-       margin-top: 0px;
+       margin-top: 0;
     }
 
     & p:first-child {
