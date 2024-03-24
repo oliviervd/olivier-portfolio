@@ -31,12 +31,13 @@ class Pillar extends Component {
         p.draw = () => {
             p.background(255);
 
-            p.fill(0);
+            p.fill("orange");
             p.noStroke();
 
             p.textFont("IBMPlexMono-Bold");
-            p.textAlign(p.CENTER, p.CENTER),
-                p.textSize(30);
+            p.textAlign(p.CENTER, p.CENTER);
+
+            p.textSize(30);
 
 
             for (let y = 0; y < elementsY + 1; y++) {
