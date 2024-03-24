@@ -1,25 +1,25 @@
 @font-face {
-    font-family: "Anthony" ,"Times New Roman";
+    font-family: "Anthony";
     src: local("Anthony"), url("assets/fonts/Anthony.woff2") format("woff")
 }
 
 @font-face {
-    font-family: "IBMPlexMono-Bold","Times New Roman";
+    font-family: "IBMPlexMono-Bold";
     src: local("IBMPlexMono-Bold"), url("assets/fonts/IBMPlexMono-Bold.otf") format("woff")
 }
 
 @font-face {
-    font-family: "Basalte-Fond","Times New Roman";
+    font-family: "Basalte-Fond";
     src: local("Basalte-Fond"), url("assets/fonts/Basalte-Fond.woff") format("woff")
 }
 
 @font-face {
-    font-family: "Ruda-VariableFont","Times New Roman";
+    font-family: "Ruda-VariableFont";
     src: local("Ruda-VariableFont"), url("assets/fonts/Ruda-VariableFont_wght.ttf") format("ttf");
 }
 
 @font-face {
-    font-family: "Qaundo-Regular","Times New Roman";
+    font-family: "Qaundo-Regular";
     src: local("Quando-Regular"), url("assets/fonts/Quando-Regular.ttf")
 }
 
@@ -71,7 +71,7 @@ header > div {
 header > .header__nav {
     text-align: end;
     & h1 {
-        font-family: "Ruda-VariableFont", serif;
+        font-family: "Basalte-Fond", serif;
         font-size: 1em;
     };
 }
