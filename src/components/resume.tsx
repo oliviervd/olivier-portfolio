@@ -1,7 +1,7 @@
 const Resume = (props) => {
     return(
         <section class={props.show ? "resume__container on-screen" : "resume__container off-screen-right"}>
-            <p className={"resume__container-divider"}>EXPERIENCE</p>
+            <p className={"typo_header resume__container-divider"}>EXPERIENCE</p>
             <div className={"experience"}>
                 <p>2024 – * * *</p>
                 <p>curator digital culture and design</p>
@@ -37,7 +37,7 @@ const Resume = (props) => {
                 <p>intern </p>
                 <p>M HKA</p>
             </div>
-            <p className={"resume__container-divider"}>EDUCATION</p>
+            <p className={"typo_header resume__container-divider"}>EDUCATION</p>
             <div className={"education"}>
                 <p>2024</p>
                 <p>Master Curating the Digital (MOOC)</p>
