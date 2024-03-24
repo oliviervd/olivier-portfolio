@@ -106,6 +106,8 @@ footer {
 .pillar__container{
     position: absolute;
     top:0;
-    left: 30vw;
+    left: 50vw;
+    transform: translateX(-50%);
     bottom:0;
+    z-index: -10000;
 }
