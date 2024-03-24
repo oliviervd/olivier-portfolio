@@ -116,3 +116,50 @@ footer {
     bottom:0;
     z-index: -10000;
 }
+
+.resume__container{
+    position: absolute;
+    right: 20px;
+    top: 100px;
+    left: 70vw;
+}
+
+.resume__container-divider{
+    color: orange;
+    text-align: center;
+}
+
+.experience{
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+    gap: 10px;
+
+    & p:first-child {
+        color: orange;
+    }
+
+    & p {
+        margin-bottom: 5px;
+        margin-top: 0px;
+    }
+
+}
+
+.education{
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    gap: 10px;
+
+    & p {
+       margin-bottom: 5px;
+       margin-top: 0px;
+    }
+
+    & p:first-child {
+        color: orange;
+    }
+}
+
+.hidden{
+    display: none;
+}
