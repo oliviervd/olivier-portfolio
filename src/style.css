@@ -107,6 +107,17 @@ footer {
     left: 70vw;
 }
 
+.off-screen-right{
+    transform: translateX(120%);
+    transition: transform 500ms linear;
+}
+
+.on-screen {
+    transform: translateX(0%);
+    transition: transform 300ms ease-in;
+}
+
+
 .resume__container-divider{
     color: orange;
     text-align: center;
@@ -135,7 +146,7 @@ footer {
 
 .education{
     display: grid;
-    grid-template-columns: 10% 80% 10%;
+    grid-template-columns: 20% 65% 15%;
     gap: 10px;
 
     & p {
@@ -146,8 +157,14 @@ footer {
     & p:first-child {
         color: orange;
     }
+
+    & p:last-child {
+        text-align: end;
+        margin-right: 20px;
+    }
 }
 
 .hidden{
     display: none;
 }
+
