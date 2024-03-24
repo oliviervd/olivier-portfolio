@@ -26,6 +26,7 @@
 body {
     background: white;
     font-family: Ruda-VariableFont, serif;
+    overflow-x: hidden;
 }
 
 p {
@@ -49,49 +50,6 @@ a:hover {
     }
 }
 
-header {
-    padding: 0 10px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-header > div {
-    display: flex;
-    flex-flow: row;
-    justify-content: end;
-    gap: 20px;
-}
-
-.typo_header {
-    font-family: "Basalte-Fond" ,serif;
-    font-size: 1.8em;
-    font-weight: 100;
-}
-
-header > .header__nav {
-    text-align: end;
-    & h1 {
-        font-family: "Basalte-Fond", serif;
-        font-size: 1em;
-    };
-}
-
-.header__nav-button{
-    display: none;
-}
-
-@media only screen and (max-width: 600px) {
-    .header__nav {
-        display: none;
-    }
-
-    .header__nav-button{
-        display: block;
-        position: absolute;
-        right: 30px;
-        top: 30px;
-    }
-}
 
 footer {
     position: absolute;
@@ -184,20 +142,4 @@ footer {
 
 .hidden{
     display: none;
-}
-
-.hamburger {
-    display: inline-block;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: #333;
-    transition: all 0.3s ease-in-out;
 }

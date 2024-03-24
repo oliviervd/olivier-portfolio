@@ -10,11 +10,12 @@ import {useState} from "preact/hooks";
 export function App() {
 
 	const [showResume, setShowResume] = useState(false)
+	const [menuOpen, setMenuOpen] = useState(false)
 
 	return (
 		<div>
-			<Header showResume={showResume} setShowResume={setShowResume}/>
-			<div class={"box__small"}>
+			<Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} showResume={showResume} setShowResume={setShowResume}/>
+			<div class={menuOpen ? "box__small" : "box__small hidden"}>
 				<About/>
 			</div>
 			<div class={"pillar__container"}>
