@@ -22,8 +22,6 @@ class Pillar extends Component {
 
         // p5.js setup function
         p.setup = () => {
-            const w = this.props.width || this.wrapper.offsetWidth;
-            const h = this.props.height || this.wrapper.offsetHeight;
             p.createCanvas(window.innerWidth, window.innerHeight);
         };
 
