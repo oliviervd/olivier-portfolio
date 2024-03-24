@@ -4,8 +4,7 @@ const Footer = () => {
             <div className={"fonts"}>
                 <p>fonts: </p>
                 <div>
-                    <p>Anthony by Sun Young Oh. Distributed by velvetyne.fr.</p>
-                    <p>Ruda by Mariela Monsalve and Angelina Sánchez</p>
+                    <p>Copyright (c) Benjamin Gomez, with Reserved Font Name Basalte.</p>
                 </div>
             </div>
         </footer>
