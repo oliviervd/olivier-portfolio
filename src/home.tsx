@@ -3,6 +3,7 @@ import './style.css';
 import Header from "./components/header";
 import Footer from "./components/footer"
 import About from "./components/about";
+import Pillar from "./sketches/pillar";
 
 export function App() {
 	return (
@@ -10,6 +11,9 @@ export function App() {
 			<Header/>
 			<div class={"box__small"}>
 				<About/>
+			</div>
+			<div class={"pillar__container"}>
+				<Pillar/>
 			</div>
 			<Footer/>
 		</div>

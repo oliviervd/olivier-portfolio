@@ -4,6 +4,11 @@
 }
 
 @font-face {
+    font-family: "IBMPlexMono-Bold";
+    src: local("IBMPlexMono-Bold"), url("assets/fonts/IBMPlexMono-Bold.otf") format("woff")
+}
+
+@font-face {
     font-family: "Basalte-Fond";
     src: local("Basalte-Fond"), url("assets/fonts/Basalte-Fond.woff") format("woff")
 }
@@ -75,7 +80,6 @@ footer {
 .box__small {
     padding: 0 10px;
     max-width: 400px;
-    border-right: 1px dotted black;
 }
 
 .fonts {
@@ -97,4 +101,11 @@ footer {
 
 .not-yet{
     cursor: wait;
+}
+
+.pillar__container{
+    position: absolute;
+    top:0;
+    left: 30vw;
+    bottom:0;
 }
