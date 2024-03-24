@@ -68,12 +68,29 @@ header > div {
     font-weight: 100;
 }
 
-header > .right {
+header > .header__nav {
     text-align: end;
     & h1 {
         font-family: "Ruda-VariableFont", serif;
         font-size: 1em;
     };
+}
+
+.header__nav-button{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .header__nav {
+        display: none;
+    }
+
+    .header__nav-button{
+        display: block;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+    }
 }
 
 footer {
