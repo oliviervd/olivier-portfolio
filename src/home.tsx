@@ -15,7 +15,7 @@ export function App() {
 	return (
 		<div>
 			<Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} showResume={showResume} setShowResume={setShowResume}/>
-			<div class={menuOpen ? "box__small" : "box__small hidden"}>
+			<div class={!menuOpen ? "box__small" : "box__small hidden"}>
 				<About/>
 			</div>
 			<div class={"pillar__container"}>

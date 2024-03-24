@@ -85,11 +85,13 @@ footer {
 
 .pillar__container{
     position: absolute;
+    max-height: 100vh;
     top:0;
     left: 50vw;
     transform: translateX(-50%);
     bottom:0;
     z-index: -10000;
+    overflow-y: hidden;
 }
 
 .resume__container{
