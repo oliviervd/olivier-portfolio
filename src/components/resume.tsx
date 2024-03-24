@@ -1,6 +1,6 @@
 const Resume = (props) => {
     return(
-        <section class={props.show ? "resume__container" : "resume__container hidden"}>
+        <section class={props.show ? "resume__container on-screen" : "resume__container off-screen-right"}>
             <p className={"resume__container-divider"}>EXPERIENCE</p>
             <div className={"experience"}>
                 <p>2024 – * * *</p>
@@ -27,7 +27,22 @@ const Resume = (props) => {
                 <p>intern assistent curator</p>
                 <p>Netwerk Aalst</p>
             </div>
+            <div className={"experience"}>
+                <p>2017</p>
+                <p>intern</p>
+                <p>Kiosk Gent</p>
+            </div>
+            <div className={"experience"}>
+                <p>2016</p>
+                <p>intern </p>
+                <p>M HKA</p>
+            </div>
             <p className={"resume__container-divider"}>EDUCATION</p>
+            <div className={"education"}>
+                <p>2024</p>
+                <p>Master Curating the Digital (MOOC)</p>
+                <p>NODE</p>
+            </div>
             <div className={"education"}>
                 <p>2017</p>
                 <p>Postgraduate in Curatorial Studies</p>
