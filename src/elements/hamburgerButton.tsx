@@ -1,4 +1,4 @@
-import '../style/header.css'
+import '../style/navigation.css'
 
 const HamburgerButton = (props) => {
     return(
