@@ -100,6 +100,15 @@ footer {
     .pillar__container {
         left: calc(10vw - env(safe-area-inset-left));
     }
+
+    .box__small {
+        max-width: none;
+    }
+
+    p {
+        font-weight: 700;
+        font-size: 1em;
+    }
 }
 
 .hidden{
