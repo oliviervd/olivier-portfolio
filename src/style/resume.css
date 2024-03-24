@@ -74,14 +74,10 @@
     }
 
     .experience, .education{
-
-
         & p:last-child{
             display: none;
         }
     }
-
-
 
     .experience > p:first-child{
         color: black;
