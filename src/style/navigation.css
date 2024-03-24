@@ -50,6 +50,7 @@ header > .header__nav {
     .off-screen {
         transform: translateX(-100%);
         transition: transform ease-in 500ms;
+        visibility: hidden
     }
 
     .on-screen {

@@ -9,6 +9,7 @@
 .off-screen-right{
     transform: translateX(120%);
     transition: transform 500ms linear;
+    display: none;
 }
 
 .on-screen {

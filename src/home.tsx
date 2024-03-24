@@ -31,7 +31,7 @@ export function App() {
 	}
 
 	return (
-		<div>
+		<div className={'main--container'}>
 			<Header menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleAbout={toggleAbout}/>
 			<div class={showAbout ? "box__small" : "box__small hidden"}>
 				<About/>
