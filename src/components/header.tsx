@@ -1,4 +1,4 @@
-import Button from "../sketches/button";
+import HamburgerButton from "../elements/hamburgerButton";
 
 const Header = (props) => {
     return(
@@ -12,7 +12,8 @@ const Header = (props) => {
                 <h1 className={"header__nav typo_header inactive"}><a>curatorial</a></h1>
             </div>
             <div className={"header__nav-button"}>
-                <Button />
+                <HamburgerButton/>
+
             </div>
         </header>
     )
