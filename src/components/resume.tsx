@@ -1,3 +1,5 @@
+import "../style/resume.css"
+
 const Resume = (props) => {
     return(
         <section class={props.show ? "resume__container on-screen" : "resume__container off-screen-right"}>
