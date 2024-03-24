@@ -66,10 +66,22 @@
 @media only screen and (max-width: 600px) {
     .resume__container{
         position: absolute;
+        margin: 0 auto;
         left: 10px;
         max-height: 60vh;
+        max-width: 80vw;
         overflow-y: scroll;
     }
+
+    .experience, .education{
+
+
+        & p:last-child{
+            display: none;
+        }
+    }
+
+
 
     .experience > p:first-child{
         color: black;
