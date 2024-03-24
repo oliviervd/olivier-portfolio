@@ -1,9 +1,9 @@
-import p5 from 'p5';
+import P5 from 'p5';
 import {h, Component} from "preact";
 
 class Pillar extends Component {
     componentDidMount() {
-        this.canvas = new p5(this.sketch, this.wrapper)
+        this.canvas = new P5(this.sketch, this.wrapper)
         window.addEventListener('resize', this.handleResize)
     }
     componentWillUnmount() {
@@ -24,7 +24,7 @@ class Pillar extends Component {
         p.setup = () => {
             const w = this.props.width || this.wrapper.offsetWidth;
             const h = this.props.height || this.wrapper.offsetHeight;
-            p.createCanvas(window.innerWidth/2, window.innerHeight);
+            p.createCanvas(window.innerWidth, window.innerHeight);
         };
 
         // p5.js draw function
