@@ -13,7 +13,8 @@ class Pillar extends Component {
 
     handleResize = () => {
         // resize canavas when the window is resized.
-        this.canvas.resizeCanvas(this.wrapper.offsetWidth, this.wrapper.offsetHeight)
+        const newHeight = this.props.height || this.wrapper.offsetHeight; // Use prop height if available
+        this.canvas.resizeCanvas(this.wrapper.offsetWidth, newHeight)
     }
 
     sketch = (p) => {
