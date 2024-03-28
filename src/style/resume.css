@@ -3,7 +3,7 @@
     position: absolute;
     right: 20px;
     top: 100px;
-    left: 70vw;
+    left: 70svw;
 }
 
 .off-screen-right{
@@ -70,7 +70,7 @@
         margin: 0 auto;
         left: 10px;
         max-height: 60vh;
-        max-width: 80vw;
+        max-width: 80svw;
         overflow-y: scroll;
     }
 

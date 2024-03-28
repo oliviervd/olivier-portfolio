@@ -89,7 +89,7 @@ footer {
     position: absolute;
     max-height: 100vh;
     top:0;
-    left: 50vw;
+    left: 50%;
     transform: translateX(-50%);
     bottom:0;
     z-index: -10000;
@@ -97,6 +97,10 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
+    body {
+        height: 100svh;
+    }
+
     .pillar__container {
         left: calc(10vw - env(safe-area-inset-left));
     }
@@ -116,5 +120,5 @@ footer {
 }
 
 .main--container{
-    max-width: 100vw;
+    max-width: 100svw;
 }
