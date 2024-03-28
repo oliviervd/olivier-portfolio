@@ -27,6 +27,8 @@ header > .header__nav {
     & h1 {
         font-family: "Basalte-Fond", serif;
         font-size: 1em;
+        padding-top: 10px;
+        padding-right: 10px;
     };
 }
 
