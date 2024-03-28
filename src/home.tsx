@@ -37,7 +37,7 @@ export function App() {
 				<About/>
 			</div>
 			<div class={"pillar__container"}>
-				<Pillar height={"100dvh"}/>
+				<Pillar/>
 			</div>
 			<Resume show={showResume}></Resume>
 			<Footer/>
