@@ -16,7 +16,9 @@ export function App() {
 
 	function navigateToResume() {
 		setMenuOpen(false)
-		setShowAbout(false)
+		if (window.innerWidth < 600) {
+			setShowAbout(false)
+		}
 		setShowResume(!showResume)
 	}
 
@@ -26,6 +28,7 @@ export function App() {
 		setMenuOpen(!menuOpen)
 	}
 	function toggleAbout() {
+
 		setShowAbout(true)
 		setMenuOpen(false)
 	}
