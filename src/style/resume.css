@@ -12,13 +12,13 @@
 
 .off-screen-right{
     transform: translateX(120%);
-    transition: transform 500ms linear;
+    /* transition: transform 500ms linear;  */
     display: none;
 }
 
 .on-screen {
     transform: translateX(0%);
-    transition: transform 300ms ease-in;
+    /* transition: transform 300ms ease-in; */
 }
 
 
@@ -80,16 +80,24 @@
 }
 
 @media only screen and (max-width: 600px) {
+
     .resume__container{
+        overflow-x: clip;
         position: absolute;
         margin: 0 auto;
-        left: 10px;
-        max-height: 60vh;
-        max-width: 80svw;
+        left: 0;
+        max-width: 100vw;
         overflow-y: scroll;
+        padding: 0 10px;
+    }
+
+    .resume__container-divider {
+        font-size: 2em;
     }
 
     .experience, .education{
+        grid-template-columns: 20% 80%;
+
         & p:last-child{
             display: none;
         }

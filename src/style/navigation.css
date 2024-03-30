@@ -64,7 +64,7 @@ header > .header__nav {
         display: flex;
         justify-content: center;
         flex-flow: column;
-        gap: 0px;
+        gap: 0;
         height: 100vh;
         width:100svw;
         text-align: center;
@@ -72,20 +72,20 @@ header > .header__nav {
 
     .off-screen {
         transform: translateX(-100%);
-        transition: transform ease-in 500ms;
+        /* transition: transform ease-in 500ms; */
         visibility: hidden
     }
 
     .on-screen {
         transform: translateX(0%);
-        transition: transform ease-in 500ms;
+        /*transition: transform ease-in 500ms;*/
     }
 
     .header__nav .typo_header {
         color: black;
         font-size: 2em;
         text-align: center;
-        margin: 10px 0px;
+        margin: 10px 0;
         transform: translateX(-2.5%)
     }
 

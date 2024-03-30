@@ -13,7 +13,7 @@ class Pillar extends Component {
 
     handleResize = () => {
         // resize canavas when the window is resized.
-        const newHeight = this.props.height || this.wrapper.offsetHeight; // Use prop height if available
+        const newHeight = window.innerHeight; // Set height to window height
         this.canvas.resizeCanvas(this.wrapper.offsetWidth, newHeight)
     }
 
@@ -60,7 +60,7 @@ class Pillar extends Component {
 
     render() {
         return (
-            <div ref={(wrapper) => (this.wrapper = wrapper)}></div>
+            <div style={{ height: '100vh', overflowY: 'auto' }} ref={(wrapper) => (this.wrapper = wrapper)}></div>
         )
     }
 }
