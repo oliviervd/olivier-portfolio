@@ -49,7 +49,7 @@ export function App() {
 
 	return (
 		<div className={'main--container'}>
-			<Header menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleAbout={toggleAbout}/>
+			<Header globals={globals} menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleAbout={toggleAbout}/>
 			<div class={showAbout ? "box__half" : "box__half hidden"}>
 				<About about={about}/>
 			</div>
