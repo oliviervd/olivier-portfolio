@@ -3,6 +3,7 @@ import "../style/resume.css"
 const Resume = (props) => {
     return(
         <section class={props.show ? "resume__container on-screen" : "resume__container off-screen-right"}>
+            <p>*/b 1992, BE - lives and works in Ghent</p>
             <p className={"typo_header resume__container-divider"}>EXPERIENCE</p>
             <div className={"experience"}>
                 <p>2024 – * * *</p>
@@ -59,6 +60,27 @@ const Resume = (props) => {
                 <p>2015</p>
                 <p>Bachelor of Arts in Art History, Musicology and Theatre Studies</p>
                 <p>UGent</p>
+            </div>
+            <p className={"typo_header resume__container-divider"}>COMMISSIONS</p>
+            <div className={"education"}>
+                <p>2024</p>
+                <p>Web portfolio Ewoud Viane</p>
+                <p>web-dev</p>
+            </div>
+            <div className={"education"}>
+                <p>2024</p>
+                <p>Web portfolio Xavier Van D'huynslager</p>
+                <p>web-dev</p>
+            </div>
+            <div className={"education"}>
+                <p>2022</p>
+                <p>DOR (composition soundtrack)</p>
+                <p>music</p>
+            </div>
+            <div className={"education"}>
+                <p>2022</p>
+                <p>Wacht (composition soundtrack)</p>
+                <p>music</p>
             </div>
         </section>
     )

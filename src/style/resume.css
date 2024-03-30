@@ -4,6 +4,10 @@
     right: 20px;
     top: 75px;
     left: 55svw;
+
+    & p {
+        margin-top: 2px;
+    }
 }
 
 .off-screen-right{
@@ -24,7 +28,7 @@
     text-align: left;
     font-size: 3rem;
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .experience{
