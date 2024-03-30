@@ -8,9 +8,6 @@
     src: local("IBMPlexMono-Light"), url("assets/fonts/IBMPlexMono-Light.otf") format("woff")
 }
 
-
-
-
 body {
     background: white;
     font-family: IBMPlexMono-Light, serif;

@@ -8,13 +8,23 @@ header {
     margin: 0 10px;
 }
 
+.header_logo {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+
+    > .little-weave {
+        margin-top: 14px;
+    }
+}
+
+
 header > div {
     display: flex;
     flex-flow: row;
     justify-content: end;
     gap: 20px;
 }
-
 
 .typo_header {
     font-family: "IBMPlexMono-Light" ,serif;

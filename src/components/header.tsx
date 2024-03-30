@@ -4,11 +4,14 @@ import {useState} from "preact/hooks";
 
 const Header = (props) => {
 
-    return(
+    return (
         <header>
-            <h1 className={"typo_header"}>OVND</h1>
+            <div className={"header_logo"}>
+                <h1 className={"little-weave"}> ⩨</h1>
+                <h1 className={"typo_header"}>OVND</h1>
+            </div>
             <div className={!props.menuOpen ? "header__nav off-screen" : "header__nav on-screen"}>
-                <h1 className={"typo_header"} onClick={()=>props.toggleAbout()}><a>about</a></h1>
+                <h1 className={"typo_header"} onClick={() => props.toggleAbout()}><a>about</a></h1>
                 <h1 className={"typo_header inactive"}><a>music</a></h1>
                 <h1 className={"typo_header inactive"}><a>code</a></h1>
                 <h1 className={"typo_header"} onClick={() => props.resume()}><a>cv</a></h1>
@@ -20,5 +23,7 @@ const Header = (props) => {
         </header>
     )
 }
+
+
 
 export default Header;
