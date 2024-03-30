@@ -103,7 +103,6 @@ footer {
         max-height: 100%;
     }
 
-
     .box__half {
         max-width: none;
     }
@@ -113,6 +112,10 @@ footer {
         font-weight: 700;
         text-transform: uppercase;
         margin-top: 2px;
+    }
+
+    .pillar__container{
+        display: none;
     }
 
 }
