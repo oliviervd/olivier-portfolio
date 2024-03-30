@@ -7,12 +7,26 @@ import About from "./components/about";
 import Pillar from "./sketches/pillar";
 import Resume from "./components/resume";
 import {useState} from "preact/hooks";
+import {useEffect} from "preact/hooks";
+import {fetchPayload} from "./utils/fetchPayload";
+import serialize from "./utils/serialize";
 
 export function App() {
 
 	const [showResume, setShowResume] = useState(false)
 	const [showAbout, setShowAbout] =useState(true)
 	const [menuOpen, setMenuOpen] = useState(false)
+	const [about, setAbout] = useState([])
+	const [globals, setGlobals] = useState([])
+
+	useEffect(() => {
+		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "about", 10).then((data)=>{
+			setGlobals(data.docs)
+			const _unserializedText = data.docs[0]["bio"]
+			const _serializedText = serialize(_unserializedText)
+			setAbout(_serializedText)
+		})
+	}, []);
 
 	function navigateToResume() {
 		setMenuOpen(false)
@@ -37,12 +51,12 @@ export function App() {
 		<div className={'main--container'}>
 			<Header menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleAbout={toggleAbout}/>
 			<div class={showAbout ? "box__half" : "box__half hidden"}>
-				<About/>
+				<About about={about}/>
 			</div>
 			<div class={"pillar__container"}>
 				<Pillar/>
 			</div>
-			<Resume show={showResume}></Resume>
+			<Resume globals={globals} show={showResume}></Resume>
 			{/*<Footer/>*/}
 		</div>
 	);
