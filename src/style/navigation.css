@@ -55,6 +55,10 @@ header > .header__nav {
 /* MOBILE */
 
 @media only screen and (max-width: 600px) {
+    header {
+        border-bottom: #333333 2px solid;
+    }
+
     .header__nav {
         position: absolute;
         display: flex;
