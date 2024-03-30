@@ -105,6 +105,11 @@ const Resume = (props) => {
             </div>
             <div className={"education"}>
                 <p>2017</p>
+                <p>Remainders</p>
+                <p>curatorial</p>
+            </div>
+            <div className={"education"}>
+                <p>2017</p>
                 <p>Rabbit is The New Beef</p>
                 <p>curatorial</p>
             </div>
