@@ -2,7 +2,6 @@ import { render } from 'preact';
 import './style.css';
 import './style/normalize.css'
 import Header from "./components/header";
-import Footer from "./components/footer"
 import About from "./components/about";
 import Pillar from "./sketches/pillar";
 import Resume from "./components/resume";
@@ -49,14 +48,19 @@ export function App() {
 
 	return (
 		<div className={'main--container'}>
-			<Header globals={globals} menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleAbout={toggleAbout}/>
+			{globals[0] &&
+				<Header globals={globals} menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleAbout={toggleAbout}/>
+			}
 			<div class={showAbout ? "box__half" : "box__half hidden"}>
 				<About about={about}/>
 			</div>
 			<div class={"pillar__container"}>
 				<Pillar/>
 			</div>
-			<Resume globals={globals} show={showResume}></Resume>
+			{globals[0] &&
+				<Resume globals={globals} show={showResume}></Resume>
+			}
+
 			{/*<Footer/>*/}
 		</div>
 	);

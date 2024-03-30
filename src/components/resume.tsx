@@ -1,7 +1,7 @@
 import "../style/resume.css"
 
-
 const Resume = (props) => {
+    console.log(props.globals[0]["readingNow"][0])
     return(
         <section class={props.show ? "resume__container on-screen" : "resume__container off-screen-right"}>
             <img className={"bio-img"} src={props.globals[0]["headshot"]["url"]}/>
