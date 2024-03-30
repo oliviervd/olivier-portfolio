@@ -57,8 +57,7 @@ footer {
 
 .bio-img {
     position: relative;
-    float: left;
-    right: 5px;
+    float: right;
     z-index: -1000;
     opacity: 0.5;
     width: 50%
