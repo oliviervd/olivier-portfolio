@@ -4,7 +4,7 @@ const Resume = (props) => {
     return(
         <section class={props.show ? "resume__container on-screen" : "resume__container off-screen-right"}>
             <img className={"bio-img"} src={"https://d3b71b8mgnztvw.cloudfront.net/headshot-dither"}/>
-            <p class={"intro"}>[b. 1992, BE] – lives and works in Ghent – Embracing the chaotic nature of things – Permacomputing the museum – Messing around with micro-computers – Looking for empty book shelves.</p>
+            <p class={"intro"}>[b. 1992, BE] – lives and works in Ghent – Embracing the chaotic nature of things – Permacomputing the museum – Messing around with micro-computers – Looking for empty book shelves. [<span><a href={"https://github.com/oliviervd"} target="_blank">Github</a></span>]|[<span><a href={"https://www.instagram.com/olivier_vandh/"} target="_blank">instagram</a></span>]</p>
             <p className={"typo_header resume__container-divider"}>EXPERIENCE</p>
             <div className={"experience"}>
                 <p>2024 – NOW</p>

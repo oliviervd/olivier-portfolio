@@ -54,7 +54,15 @@ header > .header__nav {
     display: none;
 }
 
+@media (max-width: 1400px) {
+    .reading  {
+        display: none;
+    }
+}
+
 /* MOBILE */
+
+
 
 @media only screen and (max-width: 600px) {
     header {
