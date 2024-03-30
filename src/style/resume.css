@@ -1,7 +1,7 @@
 
 .resume__container{
     position: absolute;
-    right: 20px;
+    right: 10px;
     top: 75px;
     left: 55svw;
 
@@ -26,7 +26,6 @@
     transform: translateX(0%);
     /* transition: transform 300ms ease-in; */
 }
-
 
 .resume__container-divider{
     color: black;

@@ -61,7 +61,7 @@ footer {
     z-index: -1000;
     opacity: 0.5;
     width: 50%;
-    margin-left: 5px;
+    margin-left: 20px;
 }
 
 .fonts {
@@ -101,8 +101,6 @@ footer {
         margin-top: 2px
     }
 }
-
-
 
 @media (max-width: 600px) {
     body {
