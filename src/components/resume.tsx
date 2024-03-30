@@ -1,11 +1,14 @@
 import "../style/resume.css"
 
 const Resume = (props) => {
-    console.log(props.globals[0]["readingNow"][0])
+    // todo: fetch intro from CMS
     return(
         <section class={props.show ? "resume__container on-screen" : "resume__container off-screen-right"}>
             <img className={"bio-img"} src={props.globals[0]["headshot"]["url"]}/>
-            <p class={"intro"}>[b. 1992, BE] – lives and works in Ghent – Embracing the chaotic nature of things – Permacomputing the museum – Messing around with micro-computers – Looking for empty book shelves. [<span><a href={"https://github.com/oliviervd"} target="_blank">Github</a></span>]|[<span><a href={"https://www.instagram.com/olivier_vandh/"} target="_blank">instagram</a></span>]</p>
+            <p class={"intro"}>[b. 1992, BE] – lives and works in Ghent – Embracing the chaotic nature of things –
+                Permacomputing the museum – Messing around with micro-computers – Looking for empty book shelves.
+                [<span><a href={"https://github.com/oliviervd"} target="_blank">Github</a></span>]|[<span><a
+                    href={"https://www.instagram.com/olivier_vandh/"} target="_blank">instagram</a></span>]</p>
             <p className={"typo_header resume__container-divider"}>EXPERIENCE</p>
             <div className={"experience"}>
                 <p>2024 – NOW</p>
@@ -55,7 +58,8 @@ const Resume = (props) => {
             </div>
             <div className={"education"}>
                 <p>2016</p>
-                <p>Master of Arts in Art History, Musicology and Theatre Studies</p>
+                <p>Master of Arts in Art History, Musicology and Theatre Studies (thesis: Connectivism as a learning
+                    praxis for the museum)</p>
                 <p>UGent</p>
             </div>
             <div className={"education"}>
@@ -98,6 +102,11 @@ const Resume = (props) => {
                 <p>2022</p>
                 <p>Wacht (composition soundtrack)</p>
                 <p>music</p>
+            </div>
+            <div className={"education"}>
+                <p>2017</p>
+                <p>The Rabbit is the New Beef</p>
+                <p>curatorial</p>
             </div>
         </section>
     )
