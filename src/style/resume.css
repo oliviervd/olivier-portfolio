@@ -8,7 +8,13 @@
     & p {
         margin-top: 2px;
     }
+
+    & .intro {
+        text-transform: uppercase;
+        font-size: 2rem;
+    }
 }
+
 
 .off-screen-right{
     transform: translateX(120%);
@@ -89,6 +95,12 @@
         max-width: 100vw;
         overflow-y: scroll;
         padding: 0 10px;
+
+        & .intro {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
     }
 
     .resume__container-divider {

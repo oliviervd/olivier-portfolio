@@ -55,6 +55,15 @@ footer {
     margin-top: 0;
 }
 
+.bio-img {
+    position: relative;
+    float: left;
+    right: 5px;
+    z-index: -1000;
+    opacity: 0.5;
+    width: 50%
+}
+
 .fonts {
     display: flex;
     flex-flow: row;

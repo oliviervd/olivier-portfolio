@@ -26,7 +26,9 @@ const About = () => {
     return(
         about.map((a)=>{
             return(
-                <div className={'about'}>{a}</div>
+                <div>
+                    <div className={'about'}>{a}</div>
+                </div>
             )
         })
     )
