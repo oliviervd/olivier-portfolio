@@ -105,7 +105,7 @@ const Resume = (props) => {
             </div>
             <div className={"education"}>
                 <p>2017</p>
-                <p>The Rabbit is the New Beef</p>
+                <p>Rabbit is The New Beef</p>
                 <p>curatorial</p>
             </div>
         </section>
