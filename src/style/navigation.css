@@ -17,7 +17,7 @@ header {
         position: relative;
         padding-top: 2px;
         margin: 0;
-        font-size: 3rem;
+        font-size: var(--font-size-l);
     }
 }
 
@@ -30,7 +30,7 @@ header > div {
 
 .typo_header {
     font-family: "IBMPlexMono-Light" ,serif;
-    font-size: 1.8em;
+    font-size:  var(--font-size-m);
     font-weight: 100;
     text-transform: uppercase;
 }
@@ -40,7 +40,7 @@ header > .header__nav {
     & h1 {
         font-family: "IBMPlexMono-Light" ,serif;
         text-transform: uppercase;
-        font-size: 1.8em;
+        font-size: var(--font-size-m);
         padding-right: 10px;
     };
 }
@@ -93,14 +93,15 @@ header > .header__nav {
 
     .header__nav .typo_header {
         color: black;
-        font-size: 2em;
+        font-size: var(--font-size-m);
         text-align: center;
         margin: 10px 0;
         transform: translateX(-2.5%)
     }
 
-    .header__nav a {
+    .header__nav > a {
         color: #333333;
+        font-size: var(--font-size-m);
     }
 
     .header__nav-button{
@@ -117,7 +118,7 @@ header > .header__nav {
     .little-weave__button {
         display: block;
         margin-top:0;
-        font-size: 3em;
+        font-size: 2.4rem;
         font-weight: 100;
     }
     
