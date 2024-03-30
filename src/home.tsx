@@ -33,14 +33,14 @@ export function App() {
 	return (
 		<div className={'main--container'}>
 			<Header menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleAbout={toggleAbout}/>
-			<div class={showAbout ? "box__small" : "box__small hidden"}>
+			<div class={showAbout ? "box__half" : "box__half hidden"}>
 				<About/>
 			</div>
 			<div class={"pillar__container"}>
 				<Pillar/>
 			</div>
 			<Resume show={showResume}></Resume>
-			<Footer/>
+			{/*<Footer/>*/}
 		</div>
 	);
 }

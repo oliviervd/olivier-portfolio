@@ -6,8 +6,7 @@ const Header = (props) => {
 
     return(
         <header>
-            <h1 className={"typo_header"}>Olivier Van D'huynslager</h1>
-            <div/>
+            <h1 className={"typo_header"}>OVND</h1>
             <div className={!props.menuOpen ? "header__nav off-screen" : "header__nav on-screen"}>
                 <h1 className={"typo_header"} onClick={()=>props.toggleAbout()}><a>about</a></h1>
                 <h1 className={"typo_header inactive"}><a>music</a></h1>

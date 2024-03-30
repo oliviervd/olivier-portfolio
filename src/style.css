@@ -1,31 +1,19 @@
 @font-face {
-    font-family: "Anthony";
-    src: local("Anthony"), url("assets/fonts/Anthony.woff2") format("woff")
-}
-
-@font-face {
     font-family: "IBMPlexMono-Bold";
     src: local("IBMPlexMono-Bold"), url("assets/fonts/IBMPlexMono-Bold.otf") format("woff")
 }
 
 @font-face {
-    font-family: "Basalte-Fond";
-    src: local("Basalte-Fond"), url("assets/fonts/Basalte-Fond.woff") format("woff")
+    font-family: "IBMPlexMono-Light";
+    src: local("IBMPlexMono-Light"), url("assets/fonts/IBMPlexMono-Light.otf") format("woff")
 }
 
-@font-face {
-    font-family: "Ruda-VariableFont";
-    src: local("Ruda-VariableFont"), url("assets/fonts/Ruda-VariableFont_wght.ttf") format("ttf");
-}
 
-@font-face {
-    font-family: "Qaundo-Regular";
-    src: local("Quando-Regular"), url("assets/fonts/Quando-Regular.ttf")
-}
+
 
 body {
     background: white;
-    font-family: Ruda-VariableFont, serif;
+    font-family: IBMPlexMono-Light, serif;
     overflow-x: hidden;
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
@@ -59,9 +47,15 @@ footer {
     left: 10px;
 }
 
-.box__small {
+.box__half {
     padding: 0 10px;
-    max-width: 400px;
+    max-width: 50%;
+}
+
+.about > p {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-top: 0;
 }
 
 .fonts {

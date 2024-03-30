@@ -2,8 +2,8 @@
 .resume__container{
     position: absolute;
     right: 20px;
-    top: 100px;
-    left: 70svw;
+    top: 75px;
+    left: 55svw;
 }
 
 .off-screen-right{
@@ -19,8 +19,12 @@
 
 
 .resume__container-divider{
-    color: orange;
-    text-align: center;
+    color: black;
+    text-decoration: underline;
+    text-align: left;
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 5px;
 }
 
 .experience{
@@ -29,7 +33,7 @@
     gap: 10px;
 
     & p:first-child {
-        color: orange;
+        color: black;
     }
 
     & p {
@@ -55,7 +59,7 @@
     }
 
     & p:first-child {
-        color: orange;
+        color: black;
     }
 
     & p:last-child {
