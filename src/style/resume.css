@@ -31,6 +31,13 @@
     margin-bottom: 10px;
 }
 
+@media (max-width: 1400px) {
+    .resume__container-divider{
+        font-size: 2.5rem;
+    }
+}
+
+
 .experience{
     display: grid;
     grid-template-columns: 20% 50% 30%;
