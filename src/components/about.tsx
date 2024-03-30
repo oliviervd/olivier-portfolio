@@ -11,15 +11,12 @@ const About = () => {
     const [about, setAbout] = useState([])
 
     useEffect(() => {
-        fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "text", 10).then((data)=>{
+        fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "about", 10).then((data)=>{
             // loop over and fetch type "about
-            for (let i=0; i<data.docs.length; i++) {
-                if(data.docs[i].type=="about"){
-                    const _unserializedText = data.docs[i].layout[0].text
-                    const _serializedText = serialize(_unserializedText)
-                    setAbout(_serializedText)
-                }
-            }
+            console.log(data)
+            const _unserializedText = data.docs[0]["bio"]
+            const _serializedText = serialize(_unserializedText)
+            setAbout(_serializedText)
         })
     }, []);
 
