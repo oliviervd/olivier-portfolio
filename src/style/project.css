@@ -1,0 +1,74 @@
+.projects__container{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    left: 55svw;
+    top: 60px
+}
+
+.projects__grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    & .brief{
+
+    }
+
+    & .index {
+        position: relative;
+        float: left;
+        margin-top: 5px;
+        margin-bottom: 0;
+        margin-right: 14px;
+        width: 20px; /* Size of the circle */
+        height: 20px; /* Size of the circle */
+        border-radius: 50%; /* Make it round */
+        display: flex; /* Enables flexbox */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        /* Additional styles for the circle */
+        border: 2px solid #000; /* Circle border */
+        font-size: 10px; /* Number size */
+    }
+
+    & .index--image {
+        width: 20px; /* Size of the circle */
+        height: 20px; /* Size of the circle */
+        border-radius: 50%; /* Make it round */
+        display: flex; /* Enables flexbox */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        /* Additional styles for the circle */
+        border: 2px solid black; /* Circle border */
+        font-size: 10px; /* Number size */
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: black
+    }
+
+    & img {
+        padding-top: 10px;
+        width: 100%;
+        opacity: 0.5;
+        text-align: right;
+    }
+
+    & img:hover {
+        filter: invert(75%);
+    }
+}
+
+@media (max-width: 1200px) {
+    .projects__grid {
+        display: flex;
+        flex-flow: column;
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 600px) {
+    .projects__container {
+        display: none;
+    }
+}

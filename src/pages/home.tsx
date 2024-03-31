@@ -1,6 +1,7 @@
 import { render } from 'preact';
 import '../style.css';
 import '../style/normalize.css'
+import '../style/project.css'
 import Header from "../components/header";
 import About from "../components/about";
 import Pillar from "../sketches/pillar";
@@ -9,11 +10,13 @@ import {useState} from "preact/hooks";
 import {useEffect} from "preact/hooks";
 import {fetchPayload} from "../utils/fetchPayload";
 import serialize from "../utils/serialize";
+import Projects from "../components/projects";
 
 export function App() {
 
 	const [showResume, setShowResume] = useState(false)
 	const [showAbout, setShowAbout] =useState(true)
+	const [showProjects, setShowProjects] = useState(true)
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [about, setAbout] = useState([])
 	const [globals, setGlobals] = useState([])
@@ -28,11 +31,12 @@ export function App() {
 	}, []);
 
 	function navigateToResume() {
-		setMenuOpen(false)
+		setMenuOpen(false);
+		setShowProjects(false);
 		if (window.innerWidth < 600) {
 			setShowAbout(false)
 		}
-		setShowResume(!showResume)
+		setShowResume(true)
 	}
 
 	function toggleMenu() {
@@ -40,16 +44,17 @@ export function App() {
 		setShowAbout(false)
 		setMenuOpen(!menuOpen)
 	}
-	function toggleAbout() {
-
+	function toggleHome() {
 		setShowAbout(true)
 		setMenuOpen(false)
+		setShowResume(false)
+		setShowProjects(true)
 	}
 
 	return (
 		<div className={'main--container'}>
 			{globals[0] &&
-				<Header globals={globals} menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleAbout={toggleAbout}/>
+				<Header globals={globals} menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleHome={toggleHome}/>
 			}
 			<div class={showAbout ? "box__half" : "box__half hidden"}>
 				<About about={about}/>
@@ -57,6 +62,11 @@ export function App() {
 			<div class={"pillar__container"}>
 				<Pillar/>
 			</div>
+			{showProjects &&
+				<div className={"projects__container"}>
+					<Projects/>
+				</div>
+			}
 			{globals[0] &&
 				<Resume globals={globals} show={showResume}></Resume>
 			}
