@@ -11,6 +11,7 @@ class Pillar extends Component {
         window.removeEventListener('resize', this.handleResize);
     }
 
+
     handleResize = () => {
         // resize canavas when the window is resized.
         const newHeight = window.innerHeight; // Set height to window height
@@ -20,6 +21,7 @@ class Pillar extends Component {
     sketch = (p) => {
         var elementsX = 10;
         var elementsY = 100;
+        let var1 = this.props.var1; // Store var1 as a local variable
 
         // p5.js setup function
         p.setup = () => {
@@ -43,7 +45,7 @@ class Pillar extends Component {
                 for (let x=0; x < elementsX + 1; x++){
 
                     let posY = p.map(y, 0, elementsY, 0, p.height)
-                    let magX = p.map(p.sin(p.radians(posY * 1 + p.frameCount)), -1, 1, -200, 200)
+                    let magX = p.map(p.sin(p.radians(posY * var1 + p.frameCount)), -1, 1, -200, 200)
                     let posX = p.map(x, 0, elementsX, -magX, magX);
 
                     // create matrix
@@ -54,9 +56,19 @@ class Pillar extends Component {
                 }
             }
         }
-        // Add more p5.js functions as needed
+        // Function to update var1 and trigger redraw
+        p.updateVar1 = (newVar1) => {
+            var1 = newVar1;
+            p.redraw(); // Redraw the canvas
+        };
     }
 
+    componentDidUpdate(prevProps) {
+        // If var1 prop has changed, trigger a redraw
+        if (prevProps.var1 !== this.props.var1) {
+            this.canvas.updateVar1(this.props.var1);
+        }
+    }
 
     render() {
         return (

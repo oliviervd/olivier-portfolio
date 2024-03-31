@@ -20,6 +20,9 @@ export function App() {
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [about, setAbout] = useState([])
 	const [globals, setGlobals] = useState([])
+	const [var1, setVar1] = useState(Math.floor(Math.random() * 10))
+
+	console.log(var1)
 
 	useEffect(() => {
 		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "about", 10).then((data)=>{
@@ -30,6 +33,10 @@ export function App() {
 		})
 	}, []);
 
+	useEffect(() => {
+		cycle(); // Call cycle() when component mounts
+	}, []);
+
 	function navigateToResume() {
 		setMenuOpen(false);
 		setShowProjects(false);
@@ -37,6 +44,7 @@ export function App() {
 			setShowAbout(false)
 		}
 		setShowResume(true)
+		cycle();
 	}
 
 	function toggleMenu() {
@@ -49,6 +57,11 @@ export function App() {
 		setMenuOpen(false)
 		setShowResume(false)
 		setShowProjects(true)
+		cycle();
+	}
+
+	function cycle() {
+		setVar1(Math.floor(Math.random() * 10))
 	}
 
 	return (
@@ -60,7 +73,7 @@ export function App() {
 				<About about={about}/>
 			</div>
 			<div class={"pillar__container"}>
-				<Pillar/>
+				<Pillar var1={var1}/>
 			</div>
 			{showProjects &&
 				<div className={"projects__container"}>
