@@ -1,14 +1,14 @@
 import { render } from 'preact';
-import './style.css';
-import './style/normalize.css'
-import Header from "./components/header";
-import About from "./components/about";
-import Pillar from "./sketches/pillar";
-import Resume from "./components/resume";
+import '../style.css';
+import '../style/normalize.css'
+import Header from "../components/header";
+import About from "../components/about";
+import Pillar from "../sketches/pillar";
+import Resume from "../components/resume";
 import {useState} from "preact/hooks";
 import {useEffect} from "preact/hooks";
-import {fetchPayload} from "./utils/fetchPayload";
-import serialize from "./utils/serialize";
+import {fetchPayload} from "../utils/fetchPayload";
+import serialize from "../utils/serialize";
 
 export function App() {
 
