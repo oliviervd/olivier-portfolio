@@ -125,6 +125,10 @@ header > .header__nav {
     .reading {
         display: none;
     }
+
+    .pageSize{
+        display: none;
+    }
 }
 
 .hamburger {
@@ -141,4 +145,14 @@ header > .header__nav {
     margin: 5px auto;
     background-color: #333;
     transition: all 0.3s ease-in-out;
+}
+
+.pageSize {
+    position: fixed;
+    right: 5px;
+    bottom: 0px;
+    > p {
+        margin-bottom: 5px;
+        color: black;
+    }
 }

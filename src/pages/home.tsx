@@ -11,6 +11,7 @@ import {useEffect} from "preact/hooks";
 import {fetchPayload} from "../utils/fetchPayload";
 import serialize from "../utils/serialize";
 import Projects from "../components/projects";
+import CalculateSize from "../components/fetchSize";
 
 export function App() {
 
@@ -83,8 +84,7 @@ export function App() {
 			{globals[0] &&
 				<Resume globals={globals} show={showResume}></Resume>
 			}
-
-			{/*<Footer/>*/}
+			<CalculateSize/>
 		</div>
 	);
 }
