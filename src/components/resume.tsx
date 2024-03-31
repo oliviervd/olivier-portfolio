@@ -2,6 +2,7 @@ import "../style/resume.css"
 
 const Resume = (props) => {
     // todo: fetch intro from CMS
+    // todo: parse cv from CMS
     return(
         <section class={props.show ? "resume__container on-screen" : "resume__container off-screen-right"}>
             <img className={"bio-img"} src={props.globals[0]["headshot"]["url"]}/>
