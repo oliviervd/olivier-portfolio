@@ -7,7 +7,7 @@ const Resume = (props) => {
         <section class={props.show ? "resume__container on-screen" : "resume__container off-screen-right"}>
             <img className={"bio-img"} src={props.globals[0]["headshot"]["url"]}/>
             <p class={"intro"}>[b. 1992, BE] – lives and works in Ghent – Embracing the chaotic nature of things –
-                Permacomputing the museum – Messing around with micro-computers – in perpetual search of empty book shelves.
+                Permacomputing the museum – Messing around with micro-computers – musician - book hoarder in perpetual search of empty book shelves.
                 [<span><a href={"https://github.com/oliviervd"} target="_blank">Github</a></span>]|[<span><a
                     href={"https://www.instagram.com/olivier_vandh/"} target="_blank">instagram</a></span>]</p>
             <p className={"typo_header resume__container-divider"}>EXPERIENCE</p>
