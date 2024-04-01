@@ -83,6 +83,22 @@
     }
 }
 
+@media (max-width: 1600px) {
+    .resume__container{
+        top: 50px;
+
+        & .intro {
+            font-size: 1.5rem;
+        }
+    }
+
+    .resume__container-divider {
+        font-size: 1.5rem;
+    }
+
+}
+
+
 @media only screen and (max-width: 600px) {
 
     .resume__container{

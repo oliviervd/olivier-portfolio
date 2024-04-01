@@ -65,6 +65,12 @@
     }
 }
 
+@media (max-width: 1600px) {
+    .projects__container {
+        top: 40px;
+    }
+}
+
 @media (max-width: 1200px) {
     .projects__grid {
         display: flex;
