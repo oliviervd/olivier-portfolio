@@ -23,6 +23,8 @@ export function App() {
 	const [showMusic, setShowMusic] =useState(false);
 	const [showCuratorial, setShowCuratorial] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false)
+
+	const [resume, setResume] = useState([])
 	const [music, setMusic] = useState([])
 	const [about, setAbout] = useState([])
 	const [pages, setPages] = useState([])
@@ -39,6 +41,10 @@ export function App() {
 		})
 		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "music", 10).then((data)=>{
 			setMusic(data.docs)
+		})
+
+		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "resume", 10).then((data)=>{
+			setResume(data.docs[0])
 		})
 	}, []);
 
@@ -77,7 +83,7 @@ export function App() {
 				</div>
 			}
 			{globals[0] &&
-				<Resume globals={globals} show={showResume}></Resume>
+				<Resume resume={resume} globals={globals} show={showResume}></Resume>
 			}
 			<CalculateSize/>
 		</div>
