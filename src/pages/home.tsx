@@ -29,9 +29,7 @@ export function App() {
 	useEffect(() => {
 		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "about", 10).then((data)=>{
 			setGlobals(data.docs)
-			const _unserializedText = data.docs[0]["bio"]
-			const _serializedText = serialize(_unserializedText)
-			setAbout(_serializedText)
+			setAbout(serialize(data.docs[0]["bio"]))
 		})
 	}, []);
 
@@ -39,48 +37,22 @@ export function App() {
 		cycle(); // Call cycle() when component mounts
 	}, []);
 
-	function navigateToResume() {
-		setMenuOpen(false);
-		setShowProjects(false);
+	function cycle() {
+		setVar1(Math.floor(Math.random() * 10))
+	}
+	function toggleComponent(componentName) {
+		setShowResume(componentName === "resume")
+		setShowMusic(componentName === "music")
+		setShowProjects(componentName === "home")
 		if (window.innerWidth < 600) {
 			setShowAbout(false)
 		}
-		setShowResume(true)
-		setShowMusic(false)
-		//cycle();
-	}
-
-	function toggleMenu() {
-		setShowResume(false)
-		setShowAbout(false)
-		setMenuOpen(!menuOpen)
-	}
-	function toggleHome() {
-		setShowAbout(true)
-		setMenuOpen(false)
-		setShowResume(false)
-		setShowProjects(true)
-		setShowMusic(false)
-		//cycle();
-	}
-
-	function toggleMusic() {
-		setShowAbout(true)
-		setMenuOpen(false)
-		setShowResume(false)
-		setShowProjects(false)
-		setShowMusic(true)
-		//cycle();
-	}
-
-	function cycle() {
-		setVar1(Math.floor(Math.random() * 10))
 	}
 
 	return (
 		<div className={'main--container'}>
 			{globals[0] &&
-				<Header globals={globals} menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleHome={toggleHome} toggleMusic={toggleMusic}/>
+				<Header globals={globals} menuOpen={menuOpen} toggleMenu={() => setMenuOpen(!menuOpen)} toggleComponent={toggleComponent}/>
 			}
 			<div class={showAbout ? "box__half" : "box__half hidden"}>
 				<About about={about}/>
@@ -90,7 +62,7 @@ export function App() {
 			</div>
 			{showProjects &&
 				<div className={"projects__container"}>
-					<Projects/>
+					<Projects type={"home"}/>
 				</div>
 			}
 			{showMusic &&
