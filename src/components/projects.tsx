@@ -10,7 +10,7 @@ const Projects = () => {
 
     useEffect(() => {
         fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "project", 10).then((data)=>{
-            console.log(data)
+            setProjects(data.docs)
         })
     }, []);
 
