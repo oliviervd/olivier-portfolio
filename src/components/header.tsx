@@ -26,9 +26,9 @@ const Header = (props) => {
                 <h1 className={"typo_header reading"}> – is reading: <span><a href={props.globals[0]["readingNow"][currentIndex]["url"]} target="_blank">{props.globals[0]["readingNow"][currentIndex]["title"]}</a></span></h1>
             </div>
             <div className={!props.menuOpen ? "header__nav off-screen" : "header__nav on-screen"}>
-                <h1 onClick={()=>   props.toggleMusic()} className={"typo_header"}><a>music</a></h1>
-                <h1 onClick={() => props.resume()} className={"typo_header"}><a>cv</a></h1>
+                <h1 onClick={() => props.toggleMusic()} className={"typo_header"}><a>music</a></h1>
                 <h1 className={"typo_header inactive"}><a>curatorial</a></h1>
+                <h1 onClick={() => props.resume()} className={"typo_header"}><a>cv</a></h1>
             </div>
             <div onClick={() => props.toggleMenu()} className={"header__nav-button"}>
                 <HamburgerButton/>
