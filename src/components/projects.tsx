@@ -7,12 +7,10 @@ import serialize from "../utils/serialize";
 const Projects = () => {
 
     const [projects, setProjects] = useState([])
-    console.log(projects)
-
 
     useEffect(() => {
         fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "project", 10).then((data)=>{
-            setProjects(data.docs)
+            console.log(data)
         })
     }, []);
 
@@ -21,7 +19,7 @@ const Projects = () => {
             <div className={"brief"}>
                 {projects.map((p, index) => {
                     //parse projects that need to be parsed (check home:true)
-                    if (p) {
+                    if (p.home) {
                         return (
                             <div>
                                 <p className={"index"}>{index}</p>
@@ -35,14 +33,13 @@ const Projects = () => {
             <div style={{paddingTop:"10px"}}>
                 {projects.map((p, index) => {
                     //parse projects that need to be parsed (check home:true)
-                    if (p) {
+                    if (p.home) {
                         return (
                             <div style={{position:"relative"}}>
                                 <img src={p.heroImage.url}/>
                                 <p className={"index--image"}>{index}</p>
                             </div>
                         )
-
                     }
                 })}
             </div>
