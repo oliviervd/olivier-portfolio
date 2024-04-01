@@ -8,7 +8,6 @@ import MusicPlayer from "./musicPlayer";
 const Projects = (props) => {
 
     const [page, setPage] = useState([])
-
     // fetch the right page from the pages api based on the type.
     props.pages.map((p)=>{
         if (props.type == p.title) {

@@ -28,6 +28,7 @@ const Header = (props) => {
             <div className={!props.menuOpen ? "header__nav off-screen" : "header__nav on-screen"}>
                 <h1 onClick={() => props.toggleComponent("music")} className={"typo_header"}><a>music</a></h1>
                 <h1 onClick={() => props.toggleComponent("curatorial")} className={"typo_header"}><a>curatorial</a></h1>
+                <h1 onClick={() => props.toggleComponent("code")} className={"typo_header"}><a>code</a></h1>
                 <h1 onClick={() => props.toggleComponent("resume")} className={"typo_header"}><a>cv</a></h1>
             </div>
             <div onClick={() => props.toggleMenu()} className={"header__nav-button"}>
