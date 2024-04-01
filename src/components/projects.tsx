@@ -36,7 +36,7 @@ const Projects = () => {
                     if (p.home) {
                         return (
                             <div style={{position:"relative"}}>
-                                <img src={p.heroImage.url}/>
+                                <img src={p.heroImage.url} alt={p.heroImage.alt}/>
                                 <p className={"index--image"}>{index}</p>
                             </div>
                         )
