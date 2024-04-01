@@ -1,7 +1,7 @@
 import {useEffect} from "preact/hooks";
 
 const MusicPlayer = (props) => {
-
+    //todo: when moving away from music component, make sure music keeps playing (add modal)
     let audio, playButton, pauseButton;
 
     useEffect(() => {
@@ -17,6 +17,7 @@ const MusicPlayer = (props) => {
             playButton.style.display = "none";
             pauseButton.style.display = "block";
         } else {
+            //todo: pause gently (avoid click)
             audio.pause()
             playButton.style.display = "block";
             pauseButton.style.display = "none";

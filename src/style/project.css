@@ -12,6 +12,12 @@
 
     & .brief{
         padding-right: 10px;
+        & .type {
+            color: orange;
+            padding-right: 3px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
     }
 
     & .index {

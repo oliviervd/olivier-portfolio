@@ -13,16 +13,19 @@ import {fetchPayload} from "../utils/fetchPayload";
 import serialize from "../utils/serialize";
 import Projects from "../components/projects";
 import CalculateSize from "../components/fetchSize";
-import Music from "./music";
 
 export function App() {
 
 	const [showResume, setShowResume] = useState(false)
 	const [showAbout, setShowAbout] =useState(true)
+	const [type, setType] = useState("home")
 	const [showProjects, setShowProjects] = useState(true)
 	const [showMusic, setShowMusic] =useState(false);
+	const [showCuratorial, setShowCuratorial] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false)
+	const [music, setMusic] = useState([])
 	const [about, setAbout] = useState([])
+	const [pages, setPages] = useState([])
 	const [globals, setGlobals] = useState([])
 	const [var1, setVar1] = useState(Math.floor(Math.random() * 10))
 
@@ -30,6 +33,12 @@ export function App() {
 		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "about", 10).then((data)=>{
 			setGlobals(data.docs)
 			setAbout(serialize(data.docs[0]["bio"]))
+		})
+		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "page", 10).then((data)=>{
+			setPages(data.docs)
+		})
+		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "music", 10).then((data)=>{
+			setMusic(data.docs)
 		})
 	}, []);
 
@@ -41,9 +50,11 @@ export function App() {
 		setVar1(Math.floor(Math.random() * 10))
 	}
 	function toggleComponent(componentName) {
+		setType(componentName)
 		setShowResume(componentName === "resume")
 		setShowMusic(componentName === "music")
 		setShowProjects(componentName === "home")
+		setShowCuratorial(componentName === "curatorial")
 		if (window.innerWidth < 600) {
 			setShowAbout(false)
 		}
@@ -60,14 +71,9 @@ export function App() {
 			<div class={"pillar__container"}>
 				<Pillar var1={var1}/>
 			</div>
-			{showProjects &&
+			{!showResume &&
 				<div className={"projects__container"}>
-					<Projects type={"home"}/>
-				</div>
-			}
-			{showMusic &&
-				<div className={"music__container"}>
-					<Music/>
+					<Projects pages={pages} type={type} music={music}/>
 				</div>
 			}
 			{globals[0] &&
