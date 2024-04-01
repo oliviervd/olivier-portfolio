@@ -27,7 +27,6 @@ const Header = (props) => {
             </div>
             <div className={!props.menuOpen ? "header__nav off-screen" : "header__nav on-screen"}>
                 <h1 onClick={()=>   props.toggleMusic()} className={"typo_header"}><a>music</a></h1>
-                <h1 className={"typo_header inactive"}><a>code</a></h1>
                 <h1 onClick={() => props.resume()} className={"typo_header"}><a>cv</a></h1>
                 <h1 className={"typo_header inactive"}><a>curatorial</a></h1>
             </div>
