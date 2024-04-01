@@ -14,15 +14,15 @@
     --font-size-l: 3rem;
 }
 
-@media (max-width: 1600px) {
+/*@media (max-width: 1600px) {
     :root {
         --font-size-s: 1.2rem;
         --font-size-m: 1.5rem;
         --font-size-l: 2.5rem;
     }
-}
+}*/
 
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
     :root {
         --font-size-s: 1rem;
         --font-size-m: 1.2rem;
