@@ -12,6 +12,7 @@ const CalculateSize = () => {
         let totalSizeBytes = document.documentElement.outerHTML.length;
 
         // Iterate through all resources (images, scripts, stylesheets, etc.)
+        /*
        document.querySelectorAll('img, script, link[rel="stylesheet"]').forEach((resource) => {
             if ('src' in resource) {
                 // For images and scripts
@@ -20,7 +21,7 @@ const CalculateSize = () => {
                 // For stylesheets
                 totalSizeBytes += getResourceSize(resource.href);
             }
-        });
+        });*/
 
         // Convert total size to KB
         const totalSizeKB = totalSizeBytes / 1024;
