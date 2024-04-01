@@ -55,6 +55,7 @@ export function App() {
 		setVar1(Math.floor(Math.random() * 10))
 	}
 	function toggleComponent(componentName) {
+		cycle();
 		setType(componentName)
 		setShowResume(componentName === "resume")
 		setShowMusic(componentName === "music")
