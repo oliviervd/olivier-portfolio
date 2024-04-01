@@ -2,6 +2,7 @@ import { render } from 'preact';
 import '../style.css';
 import '../style/normalize.css'
 import '../style/project.css'
+import '../style/music.css'
 import Header from "../components/header";
 import About from "../components/about";
 import Pillar from "../sketches/pillar";
@@ -12,18 +13,18 @@ import {fetchPayload} from "../utils/fetchPayload";
 import serialize from "../utils/serialize";
 import Projects from "../components/projects";
 import CalculateSize from "../components/fetchSize";
+import Music from "./music";
 
 export function App() {
 
 	const [showResume, setShowResume] = useState(false)
 	const [showAbout, setShowAbout] =useState(true)
 	const [showProjects, setShowProjects] = useState(true)
+	const [showMusic, setShowMusic] =useState(false);
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [about, setAbout] = useState([])
 	const [globals, setGlobals] = useState([])
 	const [var1, setVar1] = useState(Math.floor(Math.random() * 10))
-
-	console.log(var1)
 
 	useEffect(() => {
 		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "about", 10).then((data)=>{
@@ -45,7 +46,8 @@ export function App() {
 			setShowAbout(false)
 		}
 		setShowResume(true)
-		cycle();
+		setShowMusic(false)
+		//cycle();
 	}
 
 	function toggleMenu() {
@@ -58,7 +60,17 @@ export function App() {
 		setMenuOpen(false)
 		setShowResume(false)
 		setShowProjects(true)
-		cycle();
+		setShowMusic(false)
+		//cycle();
+	}
+
+	function toggleMusic() {
+		setShowAbout(true)
+		setMenuOpen(false)
+		setShowResume(false)
+		setShowProjects(false)
+		setShowMusic(true)
+		//cycle();
 	}
 
 	function cycle() {
@@ -68,7 +80,7 @@ export function App() {
 	return (
 		<div className={'main--container'}>
 			{globals[0] &&
-				<Header globals={globals} menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleHome={toggleHome}/>
+				<Header globals={globals} menuOpen={menuOpen} toggleMenu={toggleMenu} showResume={showResume} resume={navigateToResume} toggleHome={toggleHome} toggleMusic={toggleMusic}/>
 			}
 			<div class={showAbout ? "box__half" : "box__half hidden"}>
 				<About about={about}/>
@@ -81,6 +93,11 @@ export function App() {
 					<Projects/>
 				</div>
 			}
+			{showMusic &&
+				<div className={"music__container"}>
+					<Music/>
+				</div>
+			}
 			{globals[0] &&
 				<Resume globals={globals} show={showResume}></Resume>
 			}
@@ -89,4 +106,4 @@ export function App() {
 	);
 }
 
-render(<App />, document.getElementById('app'));
+render(<App/>, document.getElementById('app'));
