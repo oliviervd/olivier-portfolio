@@ -42,7 +42,6 @@ export function App() {
 		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "music", 10).then((data)=>{
 			setMusic(data.docs)
 		})
-
 		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "resume", 10).then((data)=>{
 			setResume(data.docs[0])
 		})
@@ -66,28 +65,26 @@ export function App() {
 		}
 	}
 
-	return (
-		<div className={'main--container'}>
-			{globals[0] &&
+	if (globals[0]){
+		return (
+			<div className={'main--container'}>
 				<Header globals={globals} menuOpen={menuOpen} toggleMenu={() => setMenuOpen(!menuOpen)} toggleComponent={toggleComponent}/>
-			}
-			<div class={showAbout ? "box__half" : "box__half hidden"}>
-				<About about={about}/>
-			</div>
-			<div class={"pillar__container"}>
-				<Pillar var1={var1}/>
-			</div>
-			{!showResume &&
-				<div className={"projects__container"}>
-					<Projects pages={pages} type={type} music={music}/>
+				<div class={showAbout ? "box__half" : "box__half hidden"}>
+					<About about={about}/>
 				</div>
-			}
-			{globals[0] &&
+				<div class={"pillar__container"}>
+					<Pillar var1={var1}/>
+				</div>
+				{!showResume &&
+					<div className={"projects__container"}>
+						<Projects pages={pages} type={type} music={music}/>
+					</div>
+				}
 				<Resume resume={resume} globals={globals} show={showResume}></Resume>
-			}
-			<CalculateSize/>
-		</div>
-	);
+				<CalculateSize/>
+			</div>
+		);
+	}
 }
 
 render(<App/>, document.getElementById('app'));

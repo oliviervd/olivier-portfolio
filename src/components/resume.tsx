@@ -2,16 +2,13 @@ import "../style/resume.css"
 import serialize from "../utils/serialize";
 
 const Resume = (props) => {
-
     let r = props.resume;
-
     return(
         <section class={props.show ? "resume__container on-screen" : "resume__container off-screen-right"}>
-            <img className={"bio-img"} src={props.globals[0]["headshot"]["url"]}/>
+            <img className={"bio-img"} src={props.globals[0]["headshot"]["url"]} alt={"profile picture of Olivier Van D'huynslager"}/>
             <p class={"intro"}>{serialize(r.intro[0].children)}</p>
             <p className={"typo_header resume__container-divider"}>EXPERIENCE</p>
             {r.experiences.map((exp)=>{
-                console.log(exp)
                 if (exp.display) {
                     return(
                         <div className={"experience"}>
