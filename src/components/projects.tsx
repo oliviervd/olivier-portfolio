@@ -18,7 +18,13 @@ const Projects = (props) => {
     function scroller(id) {
         // select element
         const scrollToElem = document.getElementById(id)
-        scrollToElem.scrollIntoView({behavior:"smooth"})
+        const targetScrollPosition = scrollToElem.offsetTop - 5;
+        // Scroll to the target position
+        window.scrollTo({
+            top: targetScrollPosition,
+            behavior: "smooth"
+        });
+
 
         // highlight selected
         // Remove "selected" class from all elements
