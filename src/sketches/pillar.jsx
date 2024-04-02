@@ -25,7 +25,7 @@ class Pillar extends Component {
         let color = p.color("orange")
 
         if (window.innerWidth <= 600) {
-            color = p.color("#ffcd99")
+            color = p.color("#f9f1f1")
         }
 
 
