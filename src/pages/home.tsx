@@ -79,7 +79,7 @@ export function App() {
 						{
 							!showResume &&
 							<div className={"projects__container"}>
-								<Projects pages={pages} type={type} music={music}/>
+								<Projects about={about} pages={pages} type={type} music={music}/>
 							</div>
 						}
 						<Resume resume={resume} globals={globals} show={showResume}></Resume>

@@ -139,7 +139,11 @@ footer {
     }
 
     .box__half {
-        max-width: none;
+        display: none;
+    }
+
+    .bio_text {
+        display: block
     }
 
     .about > p {

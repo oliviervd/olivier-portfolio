@@ -1,9 +1,8 @@
 // component showing a selected overview of projects
-import {useEffect} from "preact/hooks";
-import {fetchPayload} from "../utils/fetchPayload";
 import {useState} from "preact/hooks";
 import serialize from "../utils/serialize";
 import MusicPlayer from "./musicPlayer";
+import About from "./about";
 
 const Projects = (props) => {
 
@@ -42,6 +41,9 @@ const Projects = (props) => {
                 })}
             </div>
             <div style={{paddingTop: "10px"}}>
+                {props.type === "home" &&
+                    <About about={props.about}/>
+                }
                 {page.map((p, index) => {
                     return (
                         <div style={{position: "relative"}}>
