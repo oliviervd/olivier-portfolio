@@ -15,6 +15,11 @@ const Projects = (props) => {
         }
     })
 
+    function scroller(id) {
+        const scrollToElem = document.getElementById(id)
+        scrollToElem.scrollIntoView({behavior:"smooth"})
+    }
+
     return(
         <div class={"projects__grid"}>
             <div className={"brief"}>
@@ -22,7 +27,7 @@ const Projects = (props) => {
                     return (
                         <section>
                             <div>
-                                <p className={"index"}>{index}</p>
+                                <p id={p.content.id} className={"index"}>{index}</p>
                                 <p> {props.type === "home" &&
                                     <span className={"type"}>{`[${p.content.type}]`}</span>
                                 }{serialize(p.content.brief[0].children)}</p>
@@ -49,7 +54,8 @@ const Projects = (props) => {
                 {page.map((p, index) => {
                     return (
                         <div style={{position: "relative"}}>
-                            <img src={p.content.heroImage.url} alt={p.content.heroImage.alt}/>
+                            {/* todo: onClick image scroll to element (index above) with same ID */}
+                            <img onClick={()=>scroller(p.content.id)} id={p.content.id} src={p.content.heroImage.url} alt={p.content.heroImage.alt}/>
                             <p className={"index--image"}>{index}</p>
                         </div>
                     )
