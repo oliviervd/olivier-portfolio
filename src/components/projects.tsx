@@ -16,13 +16,25 @@ const Projects = (props) => {
     })
 
     function scroller(id) {
+        // select element
         const scrollToElem = document.getElementById(id)
         scrollToElem.scrollIntoView({behavior:"smooth"})
+
+        // highlight selected
+        // Remove "selected" class from all elements
+        const allElements = document.querySelectorAll('.selected');
+        allElements.forEach(element => {
+            element.classList.remove('selected');
+            element.classList.add('index')
+        });
+
+        scrollToElem.className = "selected"
+        // remove highlight others
     }
 
     return(
         <div class={"projects__grid"}>
-            <div className={"brief"}>
+            <div id={"brief"} className={"brief"}>
                 {page.map((p, index) => {
                     return (
                         <section>

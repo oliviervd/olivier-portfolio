@@ -20,6 +20,23 @@
         }
     }
 
+    & .selected {
+        position: relative;
+        float: left;
+        margin-top: 5px;
+        margin-bottom: 0;
+        margin-right: 14px;
+        width: 20px; /* Size of the circle */
+        height: 20px; /* Size of the circle */
+        border-radius: 50%; /* Make it round */
+        display: flex; /* Enables flexbox */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        /* Additional styles for the circle */
+        border: 3px solid orange; /* Circle border */
+        font-size: 10px; /* Number size */
+    }
+
     & .index {
         position: relative;
         float: left;
