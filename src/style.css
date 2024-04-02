@@ -67,6 +67,10 @@ a:hover {
     }
 }
 
+.bio_text{
+    display: none;
+}
+
 
 footer {
     position: absolute;

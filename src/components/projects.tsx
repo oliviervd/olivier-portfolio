@@ -42,7 +42,9 @@ const Projects = (props) => {
             </div>
             <div style={{paddingTop: "10px"}}>
                 {props.type === "home" &&
-                    <About about={props.about}/>
+                    <div className={"bio_text"}>
+                        <About about={props.about}/>
+                    </div>
                 }
                 {page.map((p, index) => {
                     return (
