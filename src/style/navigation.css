@@ -91,17 +91,17 @@ header > .header__nav {
         /*transition: transform ease-in 500ms;*/
     }
 
-    .header__nav .typo_header {
+    .header__nav  .typo_header {
         color: black;
-        font-size: var(--font-size-m);
+        font-size: var(--font-size-l);
         text-align: center;
         margin: 10px 0;
         transform: translateX(-2.5%)
     }
 
-    .header__nav > a {
-        color: #333333;
-        font-size: var(--font-size-m);
+    .header__nav > .typo_header > a {
+        color: black;
+        font-size: 2em;
     }
 
     .header__nav-button{

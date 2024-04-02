@@ -157,7 +157,7 @@ footer {
     }
 
     .pillar__container{
-        display: none;
+        display: block;
     }
 
 }
