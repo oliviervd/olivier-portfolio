@@ -19,9 +19,6 @@ export function App() {
 	const [showResume, setShowResume] = useState(false)
 	const [showAbout, setShowAbout] =useState(true)
 	const [type, setType] = useState("home")
-	const [showProjects, setShowProjects] = useState(true)
-	const [showMusic, setShowMusic] =useState(false);
-	const [showCuratorial, setShowCuratorial] = useState(false);
 	const [menuOpen, setMenuOpen] = useState(false)
 
 	const [resume, setResume] = useState([])
