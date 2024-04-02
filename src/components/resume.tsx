@@ -41,7 +41,7 @@ const Resume = (props) => {
                         return (
                             <div className={"experience"}>
                                 <p>{c.endDate}</p>
-                                <p>{c.title}</p>
+                                <p><a id={c.id} onClick={()=>props.navigateToProject(c.relatedProjects.id, c.type)}>{c.title}</a></p>
                                 <p>{c.type}</p>
                             </div>
                         )

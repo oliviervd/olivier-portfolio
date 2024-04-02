@@ -20,6 +20,7 @@ export function App() {
 	const [showAbout, setShowAbout] =useState(true)
 	const [type, setType] = useState("home")
 	const [menuOpen, setMenuOpen] = useState(false)
+	const [scrollToID, setScrollToID] = useState(null)
 
 	const [resume, setResume] = useState([])
 	const [music, setMusic] = useState([])
@@ -51,14 +52,17 @@ export function App() {
 	function cycle() {
 		setVar1(Math.floor(Math.random() * 10))
 	}
+
+	function navigateToProject(id, type) {
+		toggleComponent(type)
+		setScrollToID(id)
+	}
+
 	function toggleComponent(componentName) {
 		cycle();
 		setMenuOpen(false)
 		setType(componentName)
 		setShowResume(componentName === "resume")
-		setShowMusic(componentName === "music")
-		setShowProjects(componentName === "home")
-		setShowCuratorial(componentName === "curatorial")
 		if (window.innerWidth < 600) {
 			setShowAbout(false)
 		}
@@ -76,10 +80,10 @@ export function App() {
 						{
 							!showResume &&
 							<div className={"projects__container"}>
-								<Projects about={about} pages={pages} type={type} music={music}/>
+								<Projects about={about} pages={pages} type={type} music={music} scrollToID={scrollToID}/>
 							</div>
 						}
-						<Resume resume={resume} globals={globals} show={showResume}></Resume>
+						<Resume resume={resume} globals={globals} show={showResume} navigateToProject={navigateToProject}></Resume>
 					</>
 
 				}
