@@ -56,6 +56,7 @@ export function App() {
 	}
 	function toggleComponent(componentName) {
 		cycle();
+		setMenuOpen(false)
 		setType(componentName)
 		setShowResume(componentName === "resume")
 		setShowMusic(componentName === "music")
@@ -71,20 +72,23 @@ export function App() {
 			<div className={'main--container'}>
 				<Header globals={globals} menuOpen={menuOpen} toggleMenu={() => setMenuOpen(!menuOpen)} toggleComponent={toggleComponent}/>
 				{!menuOpen &&
-					< div class={showAbout ? "box__half" : "box__half hidden"}>
-						<About about={about}/>
-					</div>
+					<>
+						< div class={showAbout ? "box__half" : "box__half hidden"}>
+							<About about={about}/>
+						</div>
+						{
+							!showResume &&
+							<div className={"projects__container"}>
+								<Projects pages={pages} type={type} music={music}/>
+							</div>
+						}
+						<Resume resume={resume} globals={globals} show={showResume}></Resume>
+					</>
+
 				}
 				<div class={"pillar__container"}>
 					<Pillar var1={var1}/>
 				</div>
-				{
-					!showResume &&
-					<div className={"projects__container"}>
-						<Projects pages={pages} type={type} music={music}/>
-					</div>
-				}
-				<Resume resume={resume} globals={globals} show={showResume}></Resume>
 				<CalculateSize/>
 			</div>
 		);
