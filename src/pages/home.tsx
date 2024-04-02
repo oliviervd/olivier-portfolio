@@ -70,13 +70,16 @@ export function App() {
 		return (
 			<div className={'main--container'}>
 				<Header globals={globals} menuOpen={menuOpen} toggleMenu={() => setMenuOpen(!menuOpen)} toggleComponent={toggleComponent}/>
-				<div class={showAbout ? "box__half" : "box__half hidden"}>
-					<About about={about}/>
-				</div>
+				{!menuOpen &&
+					< div class={showAbout ? "box__half" : "box__half hidden"}>
+						<About about={about}/>
+					</div>
+				}
 				<div class={"pillar__container"}>
 					<Pillar var1={var1}/>
 				</div>
-				{!showResume &&
+				{
+					!showResume &&
 					<div className={"projects__container"}>
 						<Projects pages={pages} type={type} music={music}/>
 					</div>
