@@ -1,8 +1,3 @@
-
-interface AboutStates {
-    about: "array"
-}
-
 const About = (props) => {
     return(
         props.about.map((a)=>{
