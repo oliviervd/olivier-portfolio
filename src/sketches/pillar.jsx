@@ -22,6 +22,12 @@ class Pillar extends Component {
         var elementsX = 10;
         var elementsY = 100;
         let var1 = this.props.var1; // Store var1 as a local variable
+        let color = p.color("orange")
+
+        if (window.innerWidth <= 600) {
+            color = p.color("#ffcd99")
+        }
+
 
         // p5.js setup function
         p.setup = () => {
@@ -32,7 +38,7 @@ class Pillar extends Component {
         p.draw = () => {
             p.background(255);
 
-            p.fill("orange");
+            p.fill(color);
             p.noStroke();
 
             p.textFont("IBMPlexMono-Bold");
