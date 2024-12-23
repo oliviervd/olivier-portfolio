@@ -14,7 +14,7 @@ import serialize from "../utils/serialize";
 import Projects from "../components/projects";
 import CalculateSize from "../components/fetchSize";
 
-export function App() {
+export function Home() {
 
 	const [showResume, setShowResume] = useState(false)
 	const [showAbout, setShowAbout] =useState(true)
@@ -96,4 +96,4 @@ export function App() {
 	}
 }
 
-render(<App/>, document.getElementById('app'));
+//render(<App/>, document.getElementById('app'));
