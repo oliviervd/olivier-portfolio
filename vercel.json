@@ -3,6 +3,9 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
+      "rewrites": [
+        { "source": "/(.*)", "destination": "/index.html" }
+      ],
       "config": {
         "distDir": "dist"
       }
