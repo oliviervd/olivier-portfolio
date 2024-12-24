@@ -53,6 +53,7 @@ const Projects = (props) => {
         <div class={"projects__grid"}>
             <div id={"brief"} className={"brief"}>
                 {page.map((p, index) => {
+                    console.log(p)
                     return (
                         <section>
                             <div>
