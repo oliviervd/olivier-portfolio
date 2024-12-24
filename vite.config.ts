@@ -10,6 +10,7 @@ export default defineConfig({
 			input: 'src/index.tsx'
 		},
 		ssr: 'src/ssr-entry.ts',
+		outDir: 'dist'
 	},
 	ssr: {
 		noExternal: ['preact', 'preact-iso']
