@@ -12,6 +12,7 @@
 		"p5": "^1.9.2",
 		"preact": "^10.13.1",
 		"preact-iso": "^2.8.1",
+		"sitemap": "^8.0.0",
 		"slate": "^0.102.0"
 	},
 	"devDependencies": {
