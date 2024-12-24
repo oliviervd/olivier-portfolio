@@ -4,15 +4,11 @@ import preact from '@preact/preset-vite';
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [preact()],
-	base: '/',
 	build: {
-		rollupOptions: {
-			input: 'src/index.tsx'
-		},
-		ssr: 'src/ssr-entry.ts',
+		ssr: 'src/ssr-entry.ts', // Specify the SSR entry point
 		outDir: 'dist'
 	},
-	ssr: {
-		noExternal: ['preact', 'preact-iso']
+	server: {
+		port: 3000
 	}
 });
