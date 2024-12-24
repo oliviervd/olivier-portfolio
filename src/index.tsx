@@ -18,7 +18,7 @@ function App()  {
 
 // use hydrate instead of render to enable SSR. (SEO improvements).
 if (typeof window !== 'undefined') {
-    hydrate(<App/>, document.getElementById('app'));
+    hydrate(<App />, document.getElementById('app'));
 }
 
 export async function prerender(data) {
