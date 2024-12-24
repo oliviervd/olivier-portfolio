@@ -71,7 +71,7 @@ export function Home() {
 	if (globals[0]){
 		return (
 			<div className={'main--container'}>
-				<Header globals={globals} menuOpen={menuOpen} toggleMenu={() => setMenuOpen(!menuOpen)} toggleComponent={toggleComponent}/>
+				<Header globals={globals} menuOpen={menuOpen} toggleMenu={() => setMenuOpen(!menuOpen)} toggleComponent={toggleComponent} home={true}/>
 				{!menuOpen &&
 					<>
 						< div class={showAbout ? "box__half" : "box__half hidden"}>

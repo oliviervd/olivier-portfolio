@@ -1,15 +1,31 @@
-import { useRoute } from 'preact-iso';
+import Header from "../components/header";
+import {useEffect, useState} from "preact/hooks";
+import {fetchPayload} from "../utils/fetchPayload";
+import {useRoute} from "preact-iso";
 
 export function Project() {
 
-    return(
-        <div>
-            <h1>project</h1>
-            {matches ? (
-                <p>Project ID: {params?.id ? params.id : "No ID provided"}</p>
-            ) : (
-                <p>404: Page Not Found</p>
-            )}
-        </div>
-    )
+    const [globals, setGlobals] = useState([])
+    const {params} = useRoute();
+    const projectId = params?.id;
+
+    useEffect(() => {
+        fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "about", 10).then((data)=>{
+            setGlobals(data.docs)
+        })
+    }, []);
+
+    if (globals[0]) {
+        return(
+            <div>
+                <Header globals={globals} home={false}></Header>
+                <h1>project</h1>
+                {projectId ? (
+                    <p>Dynamic Project ID: {projectId}</p>
+                ) : (
+                    <p>No project selected</p>
+                )}
+            </div>
+        )
+    }
 }
