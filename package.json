@@ -3,7 +3,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "node_modules/.bin/vite",
-		"build": "node_modules/.bin/vite build && node src/generate-sitemap.js",
+		"build": "node_modules/.bin/vite build",
 		"preview": "node_modules/.bin/vite preview"
 	},
 	"dependencies": {
