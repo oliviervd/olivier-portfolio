@@ -6,7 +6,7 @@ import {useRoute} from "preact-iso";
 export function Project() {
 
     const [globals, setGlobals] = useState([])
-    const {params} = useRoute();
+    const { params } = useRoute() as { params: { id?: string } }; // Type-casting `params` with the expected type
     const projectId = params?.id;
 
     useEffect(() => {
