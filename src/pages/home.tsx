@@ -9,7 +9,7 @@ import Pillar from "../sketches/pillar";
 import Resume from "../components/resume";
 import {useState} from "preact/hooks";
 import {useEffect} from "preact/hooks";
-import {fetchPayload} from "../utils/fetchPayload";
+import {fetchPayload, useCachedPayload} from "../utils/fetchPayload";
 import serialize from "../utils/serialize";
 import Projects from "../components/projects";
 import CalculateSize from "../components/fetchSize";
@@ -21,29 +21,27 @@ export function Home() {
 	const [type, setType] = useState("home")
 	const [menuOpen, setMenuOpen] = useState(false)
 	const [scrollToID, setScrollToID] = useState(null)
-
-	const [resume, setResume] = useState([])
-	const [music, setMusic] = useState([])
-	const [about, setAbout] = useState([])
-	const [pages, setPages] = useState([])
-	const [globals, setGlobals] = useState([])
 	const [var1, setVar1] = useState(Math.floor(Math.random() * 10))
+	let about = []
 
-	useEffect(() => {
-		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "about", 10).then((data)=>{
-			setGlobals(data.docs)
-			setAbout(serialize(data.docs[0]["bio"]))
-		})
-		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "page", 10).then((data)=>{
-			setPages(data.docs)
-		})
-		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "music", 10).then((data)=>{
-			setMusic(data.docs)
-		})
-		fetchPayload("https://p01--admin--cvvgvqwlxhx2.code.run", "resume", 10).then((data)=>{
-			setResume(data.docs[0])
-		})
-	}, []);
+	// BASE_URI
+	// todo: move to env?
+	const BASE_URI = 'https://p01--admin--cvvgvqwlxhx2.code.run';
+
+	// fetch data
+	const { data: pagesData } = useCachedPayload(BASE_URI, "page", 10000);
+	const { data: musicData } = useCachedPayload(BASE_URI, "music", 10000);
+	const { data: resumeData } = useCachedPayload(BASE_URI, "resume", 10000);
+	const { data: aboutData } = useCachedPayload(BASE_URI, "about", 10000);
+
+	// derive states from the cached data.
+	const pages = pagesData?.docs || []
+	const music = musicData?.docs || []
+	const resume = resumeData?.docs[0] || []
+	const globals = aboutData?.docs || []
+	if (aboutData?.docs[0]["bio"]) {
+		about = serialize(aboutData?.docs[0]["bio"])
+	}
 
 	useEffect(() => {
 		cycle(); // Call cycle() when component mounts

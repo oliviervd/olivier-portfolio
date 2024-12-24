@@ -1,17 +1,21 @@
 import { LocationProvider, Route , Router, hydrate, prerender as ssr } from 'preact-iso';
 import { h } from 'preact';
-
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {Home} from "./pages/home";
 import {Project} from "./pages/project";
 
+const queryClient = new QueryClient();
+
 function App({url}:{url:string})  {
     return(
-        <LocationProvider>
-            <Router>
-                <Route path="/" component={Home} />
-                <Route path="/project/:id?" component={Project} />
-            </Router>
-        </LocationProvider>
+        <QueryClientProvider client={queryClient}>
+            <LocationProvider>
+                <Router>
+                    <Route path="/" component={Home} />
+                    <Route path="/project/:id?" component={Project} />
+                </Router>
+            </LocationProvider>
+        </QueryClientProvider>
     )
 }
 
@@ -22,7 +26,13 @@ if (typeof window !== 'undefined') {
 }
 
 export async function prerender(data) {
-    const html = ssr(<App url={data.url} />);
+    // SSR
+    const html = ssr(
+        <QueryClientProvider client={queryClient}>
+            <App url={data.url} />
+        </QueryClientProvider>
+    );
+    // HTML
     return {
         html,
         head: {
