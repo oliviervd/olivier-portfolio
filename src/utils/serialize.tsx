@@ -2,6 +2,7 @@ import escapeHTML from "escape-html";
 import {Text} from "slate";
 import {Fragment} from "react";
 
+
 const serialize = (children) =>
     children.map((node, i) => {
         if (Text.isText(node)) {
@@ -9,15 +10,15 @@ const serialize = (children) =>
                 <span dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }} />
         );
 
-            if (node.bold) {
+            if ('bold' in node && node.bold) {
                 text = <strong key={i}>{text}</strong>;
             }
 
-            if (node.code) {
+            if ('code' in node && node.code) {
                 text = <code key={i}>{text}</code>;
             }
 
-            if (node.italic) {
+            if ('italic' in node && node.italic) {
                 text = <em key={i}>{text}</em>;
             }
 

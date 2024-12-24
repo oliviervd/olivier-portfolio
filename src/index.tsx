@@ -6,7 +6,7 @@ import {Project} from "./pages/project";
 
 function App({url}:{url:string})  {
     return(
-        <LocationProvider url={url}>
+        <LocationProvider>
             <Router>
                 <Route path="/" component={Home} />
                 <Route path="/project/:id?" component={Project} />
@@ -18,7 +18,7 @@ function App({url}:{url:string})  {
 
 // use hydrate instead of render to enable SSR. (SEO improvements).
 if (typeof window !== 'undefined') {
-    hydrate(<App />, document.getElementById('app'));
+    hydrate(<App url={window.location.href}/>, document.getElementById('app'));
 }
 
 export async function prerender(data) {
