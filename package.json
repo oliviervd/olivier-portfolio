@@ -3,10 +3,11 @@
 	"type": "module",
 	"scripts": {
 		"dev": "node_modules/.bin/vite",
-		"build": "node_modules/.bin/vite build",
+		"build": "vite build && tsc --outDir api",
 		"preview": "node_modules/.bin/vite preview"
 	},
 	"dependencies": {
+		"@vercel/node": "^5.0.0",
 		"axios": "^1.6.7",
 		"escape-html": "^1.0.3",
 		"p5": "^1.9.2",
