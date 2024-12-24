@@ -1,17 +1,19 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { prerender } from '../src/ssr-entry';
+import path from 'path';
+
+// Import SSR logic from the SSR build output
+const { prerender } = require(path.resolve(__dirname, '../dist-ssr/ssr-entry.js'));
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-    const path = req.url || '/';
+    const url = req.url || '/';
 
     try {
-        // Await the async prerender function
-        const { html } = await prerender(path);
-
+        // Await the rendered HTML
+        const { html } = await prerender(url);
         res.setHeader('Content-Type', 'text/html');
         res.send(`<!DOCTYPE html>${html}`);
     } catch (error) {
-        console.error('Error during SSR:', error);
+        console.error('SSR Error:', error);
         res.status(500).send('Internal Server Error');
     }
 }
