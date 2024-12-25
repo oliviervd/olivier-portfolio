@@ -3,6 +3,7 @@ import { h } from 'preact';
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {Home} from "./pages/home";
 import {Project} from "./pages/project";
+import {Library} from "./pages/library";
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,7 @@ function App({url}:{url:string})  {
                 <Router>
                     <Route path="/" component={Home} />
                     <Route path="/project/:id?" component={Project} />
+                    <Route path={"/library"} component={Library} />
                 </Router>
             </LocationProvider>
         </QueryClientProvider>
