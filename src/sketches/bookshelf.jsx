@@ -55,8 +55,8 @@ class Bookshelf extends Component {
 
                 // Retrieve static (predefined) size for the current book
                 let book = books[x];
-                let bookHeight = book.height * 4.5
-                let bookWidth = book.depth * 4.5
+                let bookHeight = book.height * 5
+                let bookWidth = book.depth * 5
 
                 // Set xPos and yPos for the book
                 let bookX = xPos;
