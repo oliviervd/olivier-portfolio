@@ -13,12 +13,12 @@ class Bookshelf extends Component {
     }
 
     sketch = (p) => {
-
+        // fetch data from API
+        let books = this.props.books;
         let orange = p.color("orange")
         let numberOfShelfs = 5;
         let shelfWidth = 100;
-        let bookWidth = 30;
-        let numberOfBooks = 150;
+        let numberOfBooks = books.length;
         let bookSizes = []; // Store predefined book sizes
         let shelfHeight;
 
@@ -26,15 +26,6 @@ class Bookshelf extends Component {
         p.setup = () => {
             p.createCanvas(window.innerWidth, window.innerHeight);
             shelfHeight = p.height / numberOfShelfs;
-
-            // Predefine random sizes for each book
-            for (let i = 0; i < numberOfBooks; i++) {
-                let randomWidth = p.random(10, 50); // Random width for the book
-                let randomHeight = p.random(shelfHeight - 80, shelfHeight - 20); // Random height for the book
-
-                // Store the random dimensions in an array
-                bookSizes.push({ width: randomWidth, height: randomHeight });
-            }
         }
 
         // draw
@@ -58,12 +49,14 @@ class Bookshelf extends Component {
             p.strokeWeight(2);
             //p.fill(orange);
 
-            for (let x = 1; x < numberOfBooks; x++) {
+            for (let x = 0; x < numberOfBooks; x++) {
 
-                let { width: bookWidth, height: bookHeight } = bookSizes[x];
+                console.log(books[x])
 
                 // Retrieve static (predefined) size for the current book
-                let book = bookSizes[x];
+                let book = books[x];
+                let bookHeight = book.height * 4.5
+                let bookWidth = book.depth * 4.5
 
                 // Set xPos and yPos for the book
                 let bookX = xPos;
@@ -83,7 +76,7 @@ class Bookshelf extends Component {
                     p.noFill();
                 }
 
-                p.rect(xPos, (shelfHeight + (shelf* shelfHeight))-10, bookWidth, -bookHeight)
+                p.rect(xPos, (shelfHeight + (shelf* shelfHeight))-10, bookWidth , -bookHeight)
                 xPos += bookWidth + gap;
                 if (xPos > p.width - 100) {
                     shelf += 1;
