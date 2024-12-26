@@ -3,6 +3,7 @@ import {useEffect, useState} from "preact/hooks";
 import serialize from "../utils/serialize";
 import MusicPlayer from "./musicPlayer";
 import About from "./about";
+import {useCachedPayload} from "../utils/fetchPayload";
 
 const Projects = (props) => {
 
@@ -84,7 +85,10 @@ const Projects = (props) => {
                 {page.map((p, index) => {
                     return (
                         <div style={{position: "relative"}}>
-                            <img onClick={()=>scroller(p.content.id)} id={p.content.id} src={p.content.heroImage.url} alt={p.content.heroImage.alt}/>
+                            {p.content.heroImage.sizes.tablet.url &&
+                                <img onClick={() => scroller(p.content.id)} id={p.content.id}
+                                     src={p.content.heroImage.sizes.tablet.url} alt={p.content.heroImage.alt}/>
+                            }
                             <p className={"index--image"}>{index}</p>
                         </div>
                     )
