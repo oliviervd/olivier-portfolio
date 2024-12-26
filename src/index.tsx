@@ -14,7 +14,7 @@ function App({url}:{url:string})  {
                 <Router>
                     <Route path="/" component={Home} />
                     <Route path="/project/:id?" component={Project} />
-                    <Route path={"/library"} component={Library} />
+                    <Route path="/library" component={Library} />
                 </Router>
             </LocationProvider>
         </QueryClientProvider>
