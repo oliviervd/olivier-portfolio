@@ -1,6 +1,6 @@
 import P5 from 'p5';
 import {h, Component} from "preact";
-
+import {shuffle} from "../utils/utils.ts";
 
 class Bookshelf extends Component {
     componentDidMount() {
@@ -14,13 +14,21 @@ class Bookshelf extends Component {
 
     sketch = (p) => {
         // fetch data from API
-        let books = this.props.books;
-        let orange = p.color("orange")
-        let numberOfShelfs = 5;
-        let shelfWidth = 100;
+        let books = shuffle(this.props.books); // shuffle books
+        let orange = p.color("orange") // set color
+        let numberOfShelfs = 5; // set number of shelfs: todo: make this dynamic.
         let numberOfBooks = books.length;
-        let bookSizes = []; // Store predefined book sizes
         let shelfHeight;
+        let scale = 5;
+
+        // setup scale;
+        if (window.innerHeight < 900) {
+            scale = 4
+        }
+
+        if (window.innerHeight < 700) {
+            scale = 3
+        }
 
         // setup
         p.setup = () => {
@@ -38,25 +46,20 @@ class Bookshelf extends Component {
             }
 
             // books
-
             let shelfHeight = p.height/numberOfShelfs;
             let gap = 5;
             let shelf = 0;
             let xPos = 30; // Initial x position
-
-
 
             p.strokeWeight(2);
             //p.fill(orange);
 
             for (let x = 0; x < numberOfBooks; x++) {
 
-                console.log(books[x])
-
                 // Retrieve static (predefined) size for the current book
                 let book = books[x];
-                let bookHeight = book.height * 5
-                let bookWidth = book.depth * 5
+                let bookHeight = book.height * scale
+                let bookWidth = book.depth * scale
 
                 // Set xPos and yPos for the book
                 let bookX = xPos;
@@ -81,12 +84,8 @@ class Bookshelf extends Component {
                 if (xPos > p.width - 100) {
                     shelf += 1;
                     xPos = 30
-
                     if (shelf >= numberOfShelfs) break;
                 }
-                // draw book
-                // add width book
-                //x + book(x).width;
             }
 
         }
@@ -110,7 +109,6 @@ class Bookshelf extends Component {
             <div style={{ height: '90vh', overflow: 'none' }} ref={(wrapper) => (this.wrapper = wrapper)}></div>
         )
     }
-
 }
 
 export default Bookshelf;
