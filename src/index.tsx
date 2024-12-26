@@ -28,29 +28,70 @@ if (typeof window !== 'undefined') {
 }
 
 export async function prerender(data) {
+
+    // routes to prerender
+    const routesToPrerender = ["/", "/project", "/library"];
+
     // SSR
-    const html = ssr(
-        <QueryClientProvider client={queryClient}>
-            <App url={data.url} />
-        </QueryClientProvider>
-    );
-    // HTML
-    return {
-        html,
-        head: {
-            title: "'Olivier Van D'huynslager - homepage",
-            description: "Olivier Van D'huynslager's homepage",
-            lang: 'en',
-            elements: new Set([
-                // Social media meta tags.
-                { type: 'meta', props: { property: 'og:title', content: "Olivier Van D'huynslager - homepage" } },
-                { type: 'meta', props: { property: 'og:description', content: "Olivier Van D'huynslager's homepage" } },
-                { type: 'meta', props: { property: 'og:url', content: "https://oliviervandhuynslager.net" } },
-                { type: 'meta', props: { property: 'og:image', content: "https://d3b71b8mgnztvw.cloudfront.net/headshot-dither" } },
-                { type: 'meta', props: { property: 'og:type', content: "website" } },
-            ])
+    if (routesToPrerender.includes(data.url)) {
+        // dynamic metadata for each route;
+        let title = "";
+        let description = "";
+        let url = `https://oliviervandhuynslager.net${data.url}`
+
+        // custom metadata and titles based on route
+
+        switch (data.url) {
+            case '/':
+                title = "Olivier Van D'huynslager - Homepage";
+                description = "Discover Olivier Van D'huynslager's homepage and personal projects.";
+                break;
+            case '/project':
+                title = "Projects - Olivier Van D'huynslager";
+                description = "Projects by Olivier Van D'huynslager.";
+                break;
+            case '/library':
+                title = "Library - Olivier Van D'huynslager";
+                description = "Personal library (index) of Books of Olivier Van D'huynslager.";
+                break;
+            default:
+                title = "Olivier Van D'huynslager";
+                description = "Visit Olivier Van D'huynslager's website.";
         }
+
+        const html = ssr(
+            <QueryClientProvider client={queryClient}>
+                <App url={data.url} />
+            </QueryClientProvider>
+        );
+        // HTML
+        return {
+            html,
+            head: {
+                title: title,
+                description: description,
+                lang: 'en',
+                elements: new Set([
+                    // Social media meta tags.
+                    { type: 'meta', props: { property: 'og:title', content: title } },
+                    { type: 'meta', props: { property: 'og:description', content: description } },
+                    { type: 'meta', props: { property: 'og:url', content: url } },
+                    { type: 'meta', props: { property: 'og:image', content: "https://d3b71b8mgnztvw.cloudfront.net/headshot-dither" } },
+                    { type: 'meta', props: { property: 'og:type', content: "website" } },
+                ])
+            }
+        };
+    }
+    // Fallback for other routes (if needed)
+    return {
+        html: "",
+        head: {
+            title: "Page Not Found",
+            description: "This page does not exist.",
+            lang: 'en',
+        },
     };
+
 }
 
 //render(<App/>, document.getElementById('app'));
