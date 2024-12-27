@@ -34,6 +34,7 @@
     },
     {
       "src": "/(.*)",
+      "check": true,
       "dest": "/api/ssr"
     }
   ]
