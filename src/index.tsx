@@ -7,6 +7,7 @@ import {Library} from "./pages/library";
 
 const queryClient = new QueryClient();
 
+// main app
 function App({url}:{url:string})  {
     return(
         <QueryClientProvider client={queryClient}>
