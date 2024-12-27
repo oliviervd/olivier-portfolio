@@ -26,9 +26,6 @@
       "dest": "/_next/static/$1"
     },
     {
-      "dest": "/$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "/api/ssr"
     }
