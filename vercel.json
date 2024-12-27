@@ -22,10 +22,6 @@
       "dest": "/assets/$1"
     },
     {
-      "src": "/_next/static/(.*)",
-      "dest": "/_next/static/$1"
-    },
-    {
       "src": "/(.*)",
       "has": [
         { "type": "filesystem" }
