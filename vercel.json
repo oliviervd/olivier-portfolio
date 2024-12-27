@@ -26,9 +26,6 @@
       "dest": "/_next/static/$1"
     },
     {
-      "has": [
-        { "type": "filesystem" }
-      ],
       "dest": "/$1"
     },
     {
