@@ -16,10 +16,13 @@ class Bookshelf extends Component {
         // fetch data from API
         let books = shuffle(this.props.books); // shuffle books
         let orange = p.color("orange") // set color
-        let numberOfShelfs = 5; // set number of shelfs: todo: make this dynamic.
+        let numberOfShelfs = 3; // set number of shelfs: todo: make this dynamic.
         let numberOfBooks = books.length;
         let shelfHeight;
         let scale = 5;
+
+        let selectedBookIndex = null; // To track the clicked book
+        let metadataDisplay = ""; // To store metadata of the clicked book
 
         // setup scale;
         if (window.innerHeight < 900) {
@@ -80,6 +83,19 @@ class Bookshelf extends Component {
                 }
 
                 p.rect(xPos, (shelfHeight + (shelf* shelfHeight))-10, bookWidth , -bookHeight)
+
+                if (selectedBookIndex !== null) {
+                    let book = books[selectedBookIndex];
+                    p.fill(0); // Set text color to black
+                    p.textSize(16); // Set appropriate text size
+                    p.text(
+                        `Title: ${book.title}\nAuthor: ${book.author}`,
+                        50, // X position (adjust as needed)
+                        p.height - 200 // Y position at the bottom of the canvas (adjust as needed)
+                    ); // Draw metadata
+                    p.noFill();
+                }
+
                 xPos += bookWidth + gap;
                 if (xPos > p.width - 100) {
                     shelf += 1;
@@ -88,7 +104,45 @@ class Bookshelf extends Component {
                 }
             }
 
+
         }
+
+        p.mousePressed = () => {
+            let shelfHeight = p.height / numberOfShelfs;
+            let gap = 5;
+            let shelf = 0;
+            let xPos = 30;
+
+            for (let x = 0; x < books.length; x++) {
+                let book = books[x];
+                let bookHeight = book.height * scale;
+                let bookWidth = book.depth * scale;
+
+                let bookX = xPos;
+                let bookY = (shelfHeight + shelf * shelfHeight) - 10;
+
+                let isClicked =
+                    p.mouseX >= bookX &&
+                    p.mouseX <= bookX + bookWidth &&
+                    p.mouseY >= bookY - bookHeight &&
+                    p.mouseY <= bookY;
+
+                if (isClicked) {
+                    selectedBookIndex = x; // Store the clicked book index
+                    console.log(selectedBookIndex);
+                    metadataDisplay = `Title: ${book.title}\nAuthor: ${book.author}`; // Load metadata
+                    console.log(metadataDisplay);
+                    break;
+                }
+
+                xPos += bookWidth + gap;
+                if (xPos > p.width - 100) {
+                    shelf += 1;
+                    xPos = 30;
+                    if (shelf >= numberOfShelfs) break;
+                }
+            }
+        };
     }
 
     handleResize = () => {
