@@ -1,5 +1,4 @@
 {
-
   "builds": [
     {
       "src": "api/**/*.ts",
@@ -29,6 +28,10 @@
     {
       "src": "/(.*)",
       "dest": "/api/ssr"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
