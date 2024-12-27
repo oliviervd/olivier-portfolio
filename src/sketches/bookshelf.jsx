@@ -89,7 +89,7 @@ class Bookshelf extends Component {
                     p.fill(0); // Set text color to black
                     p.textSize(16); // Set appropriate text size
                     p.text(
-                        `Title: ${book.title}\nAuthor: ${book.author}`,
+                        `Title: ${book.title}\nAuthor: ${book.author}\nPublished: ${book.datePublished}\nPublisher: ${book.publisher}`,
                         50, // X position (adjust as needed)
                         p.height - 200 // Y position at the bottom of the canvas (adjust as needed)
                     ); // Draw metadata
