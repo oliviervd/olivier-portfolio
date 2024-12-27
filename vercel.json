@@ -1,10 +1,6 @@
 {
   "builds": [
     {
-      "src": "api/**/*.ts",
-      "use": "@vercel/node"
-    },
-    {
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
@@ -14,24 +10,8 @@
   ],
   "routes": [
     {
-      "src": "/favicon.ico",
-      "dest": "/favicon.ico"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
       "src": "/(.*)",
-      "has": [
-        { "type": "filesystem" }
-      ],
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "check": true,
-      "dest": "/api/ssr"
+      "dest": "/index.html"
     }
   ]
 }
