@@ -29,6 +29,17 @@ export function Library() {
                 <meta property="og:type" content="website"/>
                 <meta name="og:title" content="Library - Olivier Van D'huynslager"/>
                 <meta name="og:description" content="Personal library (index) of Books of Olivier Van D'huynslager."/>
+                <script type="application/ld+json">
+                    {`
+                     {
+                       "@context": "https://schema.org",
+                       "@type": "WebPage",
+                       "name": "Library Page",
+                       "url": "https://oliviervandhuynslager.net/library",
+                       "description": "Explore books and resources in the library of Olivier Van D'huynslager."
+                     }
+                   `}
+                </script>
             </Helmet>
 
             {globals[0] &&
