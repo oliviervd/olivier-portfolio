@@ -3,7 +3,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "node_modules/.bin/vite",
-		"build": "vite build && vite build --mode ssr && ts-node src/script/prerender.ts",
+		"build": "vite build && vite build --mode ssr",
 		"preview": "node_modules/.bin/vite preview",
 		"serve": "vite serve"
 	},
