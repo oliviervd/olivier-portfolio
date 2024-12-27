@@ -1,13 +1,13 @@
 import { LocationProvider, Route , Router, hydrate, prerender as ssr } from 'preact-iso';
 import { h } from 'preact';
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
-import {Home} from "./pages/home";
-import {Project} from "./pages/project";
-import {Library} from "./pages/library";
-
+import {Home} from "./pages/Home/home";
+import {Project} from "./pages/Project/project";
+import {Library} from "./pages/Library/library";
+import {testRoutePrerender} from "./utils/utils";
 const queryClient = new QueryClient();
 
-function App({url}:{url:string})  {
+export function App({url}:{url:string})  {
     return(
         <QueryClientProvider client={queryClient}>
             <LocationProvider>

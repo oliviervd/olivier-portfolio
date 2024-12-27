@@ -10,8 +10,31 @@
   ],
   "routes": [
     {
+      "src": "/(.*)\\.(js|css|png|jpg|svg|woff|woff2|eot|ttf|otf)",
+      "dest": "/$1.$2"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/_next/static/(.*)",
+      "dest": "/_next/static/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "has": [
+        { "type": "filesystem" }
+      ],
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/ssr"
     }
   ]
 }
