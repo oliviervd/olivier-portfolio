@@ -77,19 +77,28 @@ class Bookshelf extends Component {
 
                 // Set color: orange by default, red when hovered
                 if (isHovering) {
+                    selectedBookIndex = x;
                     p.fill('orange');
+                    metadataDisplay = `Title: ${book.title}\nAuthor: ${book.author}`; // Load metadata
                 } else {
                     p.noFill();
                 }
 
+                p.stroke(orange);
                 p.rect(xPos, (shelfHeight + (shelf* shelfHeight))-10, bookWidth , -bookHeight)
 
                 if (selectedBookIndex !== null) {
                     let book = books[selectedBookIndex];
-                    p.fill(0); // Set text color to black
+                    p.fill("orange"); // Set text color to black
                     p.textSize(16); // Set appropriate text size
+                    p.noStroke()
+
+                    // year
+                    const d = new Date(book.datePublished);
+                    let year = d.getFullYear();
+
                     p.text(
-                        `Title: ${book.title}\nAuthor: ${book.author}\nPublished: ${book.datePublished}\nPublisher: ${book.publisher}`,
+                        `Title: ${book.title}\nAuthor: ${book.author}\nPublished: ${year}\nPublisher: ${book.publisher}`,
                         50, // X position (adjust as needed)
                         p.height - 200 // Y position at the bottom of the canvas (adjust as needed)
                     ); // Draw metadata
@@ -129,9 +138,7 @@ class Bookshelf extends Component {
 
                 if (isClicked) {
                     selectedBookIndex = x; // Store the clicked book index
-                    console.log(selectedBookIndex);
                     metadataDisplay = `Title: ${book.title}\nAuthor: ${book.author}`; // Load metadata
-                    console.log(metadataDisplay);
                     break;
                 }
 

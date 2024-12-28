@@ -33,6 +33,9 @@ header > div {
     font-size:  var(--font-size-m);
     font-weight: 100;
     text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 header > .header__nav {

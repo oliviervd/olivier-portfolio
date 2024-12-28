@@ -12,8 +12,6 @@ export function Library() {
     const books = booksData?.docs || []
     const globals = aboutData?.docs || []
 
-    console.log(books)
-
     //todo: insert P5
     return(
         <div>
