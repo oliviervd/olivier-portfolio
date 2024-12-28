@@ -12,7 +12,8 @@ export function Library() {
     const books = booksData?.docs || []
     const globals = aboutData?.docs || []
 
-    //todo: insert P5
+    // todo: add listview
+
     return(
         <div>
             {globals[0] &&

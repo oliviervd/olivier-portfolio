@@ -99,7 +99,7 @@ class Bookshelf extends Component {
 
                     p.text(
                         `Title: ${book.title}\nAuthor: ${book.author}\nPublished: ${year}\nPublisher: ${book.publisher}`,
-                        50, // X position (adjust as needed)
+                        30, // X position (adjust as needed)
                         p.height - 200 // Y position at the bottom of the canvas (adjust as needed)
                     ); // Draw metadata
                     p.noFill();
@@ -167,7 +167,7 @@ class Bookshelf extends Component {
 
     render() {
         return (
-            <div style={{ height: '90vh', overflow: 'none' }} ref={(wrapper) => (this.wrapper = wrapper)}></div>
+            <div style={{ height: '100vh', overflow: 'none' }} ref={(wrapper) => (this.wrapper = wrapper)}></div>
         )
     }
 }

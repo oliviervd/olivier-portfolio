@@ -1,6 +1,6 @@
 .bookshelf--container{
     margin: 10px;
-    max-height: 90vh;
+    max-height: 100%;
     max-width: 100%;
     overflow: clip;
 }
