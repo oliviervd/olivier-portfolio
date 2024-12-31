@@ -3,7 +3,7 @@ import { h } from 'preact';
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {Home} from "./pages/home";
 import {Project} from "./pages/project";
-import {Library} from "./pages/library/library.tsx";
+import {Library} from "./pages/library.tsx";
 
 const queryClient = new QueryClient();
 

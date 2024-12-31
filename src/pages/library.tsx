@@ -1,10 +1,10 @@
-import Header from "../../components/header.tsx";
+import Header from "../components/header.tsx";
 import {useState} from "preact/hooks";
-import {useCachedPayload} from "../../utils/fetchPayload.ts";
-import Bookshelf from "../../sketches/bookshelf";
-import "../../style/library.css"
+import {useCachedPayload} from "../utils/fetchPayload.ts";
+import Bookshelf from "../sketches/bookshelf";
+import "../style/library.css"
 import {BookList} from "./books-list.tsx";
-import Pillar from "../../sketches/pillar";
+import Pillar from "../sketches/pillar";
 
 export function Library() {
 

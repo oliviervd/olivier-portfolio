@@ -1,5 +1,5 @@
-import {getYear} from "../../utils/utils.ts";
-import Pillar from "../../sketches/pillar";
+import {getYear} from "../utils/utils.ts";
+import Pillar from "../sketches/pillar";
 
 export function BookList() {
 
