@@ -9,9 +9,9 @@
 }
 
 :root {
-    --font-size-s: 1.2rem;
-    --font-size-m: 1.8rem;
-    --font-size-l: 2.5rem;
+    --font-size-s: 1rem;
+    --font-size-m: 1.2rem;
+    --font-size-l: 2rem;
 }
 
 /*@media (max-width: 1600px) {

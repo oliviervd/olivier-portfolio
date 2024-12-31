@@ -14,3 +14,8 @@ export function shuffle(array) {
     }
     return array
 }
+
+export function getYear(dateTime){
+    const d = new Date(dateTime);
+    return d.getFullYear();
+}

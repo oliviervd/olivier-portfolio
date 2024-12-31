@@ -5,6 +5,8 @@ import {useLocation} from "preact-iso"
 import {useCachedPayload} from "../utils/fetchPayload.ts";
 const Header = (props) => {
 
+    const [isFixed, setIsFixed] = useState(false);
+
     // State to keep track of the current index
     const [currentIndex, setCurrentIndex] = useState(0);
     const location = useLocation();
@@ -29,8 +31,24 @@ const Header = (props) => {
         }
     }, [readingNow]); // Empty dependency array means this effect runs once on mount
 
+    useEffect(() => {
+        const handleScroll = () => {
+            // Check if the scroll position is greater than 0
+            if (window.scrollY > 0) {
+                setIsFixed(true); // Add the fixed style
+            } else {
+                setIsFixed(false); // Remove the fixed style
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        // Cleanup on unmount
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <header>
+        <header className={isFixed ? "header fixed" : "header"}>
             <div className={"header_logo"}>
                 <h1 onClick={()=>props.home ? props.toggleComponent("home") : location.route('/') } className={"little-weave"}>⩨</h1>
                 <h1 onClick={()=>props.toggleComponent("home")} className={"typo_header"}>OVND</h1>
@@ -46,7 +64,9 @@ const Header = (props) => {
                 <h1 onClick={() => props.toggleComponent("curatorial")} className={"typo_header"}><a>curatorial</a></h1>
                 <h1 onClick={() => props.toggleComponent("code")} className={"typo_header"}><a>code</a></h1>
                 <h1 onClick={() => props.toggleComponent("resume")} className={"typo_header"}><a>cv</a></h1>
-                <h1 className={"typo_header"}><a href={"/library"}>library</a></h1>
+                {window.innerWidth > 768 &&
+                    <h1 className={"typo_header"}><a href={"/library"}>library</a></h1>
+                }
             </div>
             <div onClick={() => props.toggleMenu()} className={"header__nav-button"}>
                 <HamburgerButton/>

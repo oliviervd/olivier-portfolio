@@ -1,6 +1,7 @@
 import P5 from 'p5';
 import {h, Component} from "preact";
 import {shuffle} from "../utils/utils.ts";
+import {getYear} from "../utils/utils.ts";
 
 class Bookshelf extends Component {
     componentDidMount() {
@@ -44,6 +45,14 @@ class Bookshelf extends Component {
             p.background(255);
             p.stroke(orange);
             p.strokeWeight(3);
+
+
+            // pages
+            p.noStroke()
+            p.fill("orange")
+            //p.text(`pages: ${this.props.totalPages}`, 30, 30)
+            p.stroke("orange")
+
             for (let y = 1; y < numberOfShelfs; y++) {
                 p.line(30, p.height/numberOfShelfs*y, p.width-50, p.height/numberOfShelfs*y);
             }
@@ -93,12 +102,8 @@ class Bookshelf extends Component {
                     p.textSize(16); // Set appropriate text size
                     p.noStroke()
 
-                    // year
-                    const d = new Date(book.datePublished);
-                    let year = d.getFullYear();
-
                     p.text(
-                        `Title: ${book.title}\nAuthor: ${book.author}\nPublished: ${year}\nPublisher: ${book.publisher}`,
+                        `Title: ${book.title}\nAuthor: ${book.author}\nPublished: ${getYear(book.datePublished)}\nPublisher: ${book.publisher}`,
                         30, // X position (adjust as needed)
                         p.height - 200 // Y position at the bottom of the canvas (adjust as needed)
                     ); // Draw metadata
