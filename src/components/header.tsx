@@ -63,6 +63,7 @@ const Header = (props) => {
                 <h1 onClick={() => props.toggleComponent("music")} className={"typo_header"}><a>music</a></h1>
                 <h1 onClick={() => props.toggleComponent("curatorial")} className={"typo_header"}><a>curatorial</a></h1>
                 <h1 onClick={() => props.toggleComponent("code")} className={"typo_header"}><a>code</a></h1>
+                <h1 className={"typo_header"}><a href={"/library"}>library</a></h1>
                 <h1 onClick={() => props.toggleComponent("resume")} className={"typo_header"}><a>cv</a></h1>
                 {window.innerWidth > 768 &&
                     <h1 className={"typo_header"}><a href={"/library"}>library</a></h1>
