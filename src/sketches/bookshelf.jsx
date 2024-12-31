@@ -1,6 +1,7 @@
 import P5 from 'p5';
 import {h, Component} from "preact";
 import {shuffle} from "../utils/utils.ts";
+import {getYear} from "../utils/utils.ts";
 
 class Bookshelf extends Component {
     componentDidMount() {
@@ -44,6 +45,14 @@ class Bookshelf extends Component {
             p.background(255);
             p.stroke(orange);
             p.strokeWeight(3);
+
+
+            // pages
+            p.noStroke()
+            p.fill("orange")
+            //p.text(`pages: ${this.props.totalPages}`, 30, 30)
+            p.stroke("orange")
+
             for (let y = 1; y < numberOfShelfs; y++) {
                 p.line(30, p.height/numberOfShelfs*y, p.width-50, p.height/numberOfShelfs*y);
             }
@@ -77,20 +86,25 @@ class Bookshelf extends Component {
 
                 // Set color: orange by default, red when hovered
                 if (isHovering) {
+                    selectedBookIndex = x;
                     p.fill('orange');
+                    metadataDisplay = `Title: ${book.title}\nAuthor: ${book.author}`; // Load metadata
                 } else {
                     p.noFill();
                 }
 
+                p.stroke(orange);
                 p.rect(xPos, (shelfHeight + (shelf* shelfHeight))-10, bookWidth , -bookHeight)
 
                 if (selectedBookIndex !== null) {
                     let book = books[selectedBookIndex];
-                    p.fill(0); // Set text color to black
+                    p.fill("orange"); // Set text color to black
                     p.textSize(16); // Set appropriate text size
+                    p.noStroke()
+
                     p.text(
-                        `Title: ${book.title}\nAuthor: ${book.author}\nPublished: ${book.datePublished}\nPublisher: ${book.publisher}`,
-                        50, // X position (adjust as needed)
+                        `Title: ${book.title}\nAuthor: ${book.author}\nPublished: ${getYear(book.datePublished)}\nPublisher: ${book.publisher}`,
+                        30, // X position (adjust as needed)
                         p.height - 200 // Y position at the bottom of the canvas (adjust as needed)
                     ); // Draw metadata
                     p.noFill();
@@ -129,9 +143,7 @@ class Bookshelf extends Component {
 
                 if (isClicked) {
                     selectedBookIndex = x; // Store the clicked book index
-                    console.log(selectedBookIndex);
                     metadataDisplay = `Title: ${book.title}\nAuthor: ${book.author}`; // Load metadata
-                    console.log(metadataDisplay);
                     break;
                 }
 
@@ -160,7 +172,7 @@ class Bookshelf extends Component {
 
     render() {
         return (
-            <div style={{ height: '90vh', overflow: 'none' }} ref={(wrapper) => (this.wrapper = wrapper)}></div>
+            <div style={{ height: '100vh', overflow: 'none' }} ref={(wrapper) => (this.wrapper = wrapper)}></div>
         )
     }
 }

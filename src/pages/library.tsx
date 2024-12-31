@@ -1,10 +1,17 @@
-import Header from "../components/header";
-import {useCachedPayload} from "../utils/fetchPayload";
+
+import Header from "../components/header.tsx";
+import {useState} from "preact/hooks";
+import {useCachedPayload} from "../utils/fetchPayload.ts";
 import Helmet from "preact-helmet/es/Helmet";
 import Bookshelf from "../sketches/bookshelf";
 import "../style/library.css"
+import {BookList} from "./books-list.tsx";
+import Pillar from "../sketches/pillar";
 
 export function Library() {
+
+    const [view ,setView] = useState("shelf")
+    const [var1, setVar1] = useState(Math.floor(Math.random() * 10))
 
     // fetch data from API
     const BASE_URI = 'https://p01--admin--cvvgvqwlxhx2.code.run';
@@ -12,10 +19,18 @@ export function Library() {
     const { data: booksData } = useCachedPayload(BASE_URI, "book", 10000); //
     const books = booksData?.docs || []
     const globals = aboutData?.docs || []
+    let pages = 0;
 
-    console.log(books)
+    for (let i = 0; i < books.length; i += 10) {
+        pages += books[i]["pages"] || []
+    }
 
-    //todo: insert P5
+    console.log(pages)
+
+    // todo: add listview
+    // todo: number of pages (tota)
+    // todo: filter (non-fiction, fiction)
+
     return(
         <>
 
@@ -48,7 +63,17 @@ export function Library() {
 
             {books[0] &&
                 <div className={"bookshelf--container"}>
-                    <Bookshelf books={books}/>
+
+                    <div className={"bookshelf__switch"}>
+                        <a onClick={()=>{setView("list")}}>list</a>
+                        <a onClick={()=>{setView("shelf")}}>shelf</a>
+                    </div>
+                    {view === "shelf" &&
+                        <Bookshelf books={books} totalPages={pages}/>
+                    }
+                    {view === "list" &&
+                        <BookList books={books}/>
+                    }
                 </div>
             }
 
