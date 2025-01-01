@@ -43,15 +43,15 @@ class Bookshelf extends Component {
         // draw
         p.draw = () => {
             p.background(255);
-            p.stroke(orange);
+            p.stroke("black");
             p.strokeWeight(3);
 
 
             // pages
             p.noStroke()
-            p.fill("orange")
+            p.fill("black")
             //p.text(`pages: ${this.props.totalPages}`, 30, 30)
-            p.stroke("orange")
+            p.stroke("black")
 
             for (let y = 1; y < numberOfShelfs; y++) {
                 p.line(30, p.height/numberOfShelfs*y, p.width-50, p.height/numberOfShelfs*y);
@@ -84,6 +84,12 @@ class Bookshelf extends Component {
                     p.mouseY >= bookY - bookHeight &&
                     p.mouseY <= bookY;
 
+                if (book.reading) {
+                    p.fill('orange'); // Explicitly set the fill color for the circle
+                    //p.stroke();
+                    p.circle(bookX + bookWidth / 2, bookY + 20, 5);
+                }
+
                 // Set color: orange by default, red when hovered
                 if (isHovering) {
                     selectedBookIndex = x;
@@ -93,7 +99,8 @@ class Bookshelf extends Component {
                     p.noFill();
                 }
 
-                p.stroke(orange);
+
+                p.stroke('black');
                 p.rect(xPos, (shelfHeight + (shelf* shelfHeight))-10, bookWidth , -bookHeight)
 
                 if (selectedBookIndex !== null) {
