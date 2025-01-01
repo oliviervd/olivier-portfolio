@@ -134,7 +134,7 @@ class Bookshelf extends Component {
                 }
 
                 xPos += bookWidth + gap;
-                if (xPos > p.width - 0) {
+                if (xPos > p.width - 65) {
                     shelf += 1;
                     xPos = 30
                     if (shelf >= numberOfShelfs) break;
