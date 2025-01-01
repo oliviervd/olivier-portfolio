@@ -3,7 +3,6 @@ import serialize from "../utils/serialize";
 
 const Resume = (props) => {
     let r = props.resume
-    console.log(r)
 
     if (props.resume && props.resume.intro) {
         return(
