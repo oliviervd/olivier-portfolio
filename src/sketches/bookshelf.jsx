@@ -63,7 +63,7 @@ class Bookshelf extends Component {
             let shelf = 0;
             let xPos = 30; // Initial x position
 
-            p.strokeWeight(2);
+            p.strokeWeight(0.8);
             //p.fill(orange);
 
             for (let x = 0; x < numberOfBooks; x++) {
