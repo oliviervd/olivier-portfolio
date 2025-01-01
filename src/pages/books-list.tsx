@@ -5,13 +5,19 @@ export function BookList() {
 
     const years = []
 
-    this.props.books.forEach((book)=>{
-        if (!years.includes(getYear(book.datePublished))) {
-            years.push(getYear(book.datePublished))
-        };
+    const filteredBooks = this.props.books.filter((book) => {
+        // If tags are not an empty array, filter books based on tags and categories
+        return this.props.tags.length === 0 ||
+            (Array.isArray(book.category) && book.category.some((cat) => this.props.tags.includes(cat)));
+    });
 
-    })
-
+// Extract unique years from the filtered books
+    filteredBooks.forEach((book) => {
+        const year = getYear(book.datePublished);
+        if (!years.includes(year)) {
+            years.push(year);
+        }
+    });
     return(
         <section>
             <section style={{display: "grid", gridTemplateColumns: "0.5fr 5fr"}}>
@@ -31,7 +37,7 @@ export function BookList() {
                                 <h1>{y}</h1>
                             </div>
                             <div>
-                                {this.props.books.map((book) => {
+                                {filteredBooks.map((book) => {
                                     if (getYear(book.datePublished) === y) {
                                         return (
                                             <div className={"table__body"}>
