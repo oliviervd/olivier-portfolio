@@ -3,6 +3,7 @@ import serialize from "../utils/serialize";
 
 const Resume = (props) => {
     let r = props.resume
+    console.log(r)
 
     if (props.resume && props.resume.intro) {
         return(
@@ -18,6 +19,18 @@ const Resume = (props) => {
                                 <p>{exp.startDate} – {exp.endDate}</p>
                                 <p>{exp.title}</p>
                                 <p>{exp.organisation}</p>
+                            </div>
+                        )
+                    }
+                })}
+                <p className={"typo_header resume__container-divider"}>TEACHING</p>
+                {r.teachings.map((t)=>{
+                    if (t.display) {
+                        return (
+                            <div className={"experience"}>
+                                <p>{t.startDate}</p>
+                                <p>{t.title}</p>
+                                <p>{t.organisation}</p>
                             </div>
                         )
                     }
