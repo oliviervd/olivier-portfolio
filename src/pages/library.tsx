@@ -107,7 +107,7 @@ export function Library() {
                         <Bookshelf books={books} totalPages={pages} tags={tags}/>
                     }
                     {view === "list" &&
-                        <BookList books={books}/>
+                        <BookList books={books} tags={tags}/>
                     }
                     {showFilters &&
                         <div className={"bookshelf__filters"}>
