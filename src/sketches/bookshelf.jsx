@@ -15,10 +15,26 @@ class Bookshelf extends Component {
 
     sketch = (p) => {
         // fetch data from API
-        let books = shuffle(this.props.books); // shuffle books
+        let filteredBooks
         let orange = p.color("orange") // set color
+
+        // Check if there are tags to filter by
+        if (this.props.tags && this.props.tags.length > 0) {
+            console.log(this.props.tags)
+            // Filter books that contain at least one of the tags in their categories
+            filteredBooks = this.props.books.filter(book =>
+                Array.isArray(book.category) && book.category.some(cat => this.props.tags.includes(cat))
+            );
+        } else {
+            // If no tags are provided, show all books
+            filteredBooks = [...this.props.books];
+        }
+
+        // Shuffle the filtered books
+        let books = shuffle(filteredBooks);
+
         let numberOfShelfs = 3; // set number of shelfs: todo: make this dynamic.
-        let numberOfBooks = books.length;
+        let numberOfBooks = filteredBooks.length;
         let shelfHeight;
         let scale = 5;
 
@@ -63,7 +79,7 @@ class Bookshelf extends Component {
             let shelf = 0;
             let xPos = 30; // Initial x position
 
-            p.strokeWeight(2);
+            p.strokeWeight(0.8);
             //p.fill(orange);
 
             for (let x = 0; x < numberOfBooks; x++) {
@@ -118,7 +134,7 @@ class Bookshelf extends Component {
                 }
 
                 xPos += bookWidth + gap;
-                if (xPos > p.width - 100) {
+                if (xPos > p.width - 0) {
                     shelf += 1;
                     xPos = 30
                     if (shelf >= numberOfShelfs) break;
@@ -171,9 +187,11 @@ class Bookshelf extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        // If var1 prop has changed, trigger a redraw
-        if (prevProps.var1 !== this.props.var1) {
-            this.canvas.updateVar1(this.props.var1);
+        // Check if `tags` or `books` props have changed
+        if (prevProps.tags !== this.props.tags || prevProps.books !== this.props.books) {
+            // Remove and reinitialize the sketch to apply the new filters
+            this.canvas.remove();
+            this.canvas = new P5(this.sketch, this.wrapper);
         }
     }
 

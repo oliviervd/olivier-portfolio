@@ -20,14 +20,43 @@ export function Library() {
     const books = booksData?.docs || []
     const globals = aboutData?.docs || []
     let pages = 0;
+    const [showFilters, setShowFilters] = useState(false);
+    const [tags, setTags] = useState<string[]>([]); // Using state for tags
+    let options =  [
+        "art",
+        "design",
+        "graphic design",
+        "exhibition catalogue",
+        "curatorial",
+        "museology",
+        "computation",
+        "AI",
+        "ecology",
+        "philosophy",
+        "architecture",
+        "theory",
+        "history",
+        "feminism",
+        "science-fiction",
+        "media",
+        "urban",
+        "weaving",
+        "sociology",
+        "creative-coding"
+    ] // todo: make this dynamic (parse from API)
+
+    function handleTag(o: string) {
+        setTags((prevTags) =>
+            prevTags.includes(o) ? prevTags.filter((tag) => tag !== o) : [...prevTags, o]
+        );
+    }
+
+    console.log(tags)
 
     for (let i = 0; i < books.length; i += 10) {
         pages += books[i]["pages"] || []
     }
 
-    console.log(pages)
-
-    // todo: add listview
     // todo: number of pages (tota)
     // todo: filter (non-fiction, fiction)
 
@@ -63,16 +92,39 @@ export function Library() {
 
             {books[0] &&
                 <div className={"bookshelf--container"}>
-
-                    <div className={"bookshelf__switch"}>
-                        <a onClick={()=>{setView("list")}}>list</a>
-                        <a onClick={()=>{setView("shelf")}}>shelf</a>
+                    <div className={"bookshelf__nav"}>
+                        <div className={"bookshelf__switch"}>
+                            <a onClick={() => {
+                                setView("list")
+                            }}>list</a>
+                            <a onClick={() => {
+                                setView("shelf")
+                            }}>shelf</a>
+                        </div>
+                        <a onClick={()=>setShowFilters(!showFilters)}>filters</a>
                     </div>
                     {view === "shelf" &&
-                        <Bookshelf books={books} totalPages={pages}/>
+                        <Bookshelf books={books} totalPages={pages} tags={tags}/>
                     }
                     {view === "list" &&
                         <BookList books={books}/>
+                    }
+                    {showFilters &&
+                        <div className={"bookshelf__filters"}>
+                            {tags.length > 0 &&
+                                <div className={"clear"}>
+                                    <a onClick={()=>setTags([])}>clear all</a>
+                                </div>
+                            }
+                            {options.map((o) => {
+                                    return (
+                                        <div>
+                                            <a style={{color: tags.includes(o) ? "white" : "black"}} onClick={()=>handleTag(o)}>{o}</a>
+                                        </div>
+                                    )
+                                }
+                            )}
+                        </div>
                     }
                 </div>
             }
