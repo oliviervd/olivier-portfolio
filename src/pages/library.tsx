@@ -20,7 +20,7 @@ export function Library() {
     const books = booksData?.docs || []
     const globals = aboutData?.docs || []
     let pages = 0;
-    const [showFilters, setShowFilters] = useState(false);
+    const [showFilters, setShowFilters] = useState(true);
     const [tags, setTags] = useState<string[]>([]); // Using state for tags
     let options =  [
         "art",
@@ -62,7 +62,6 @@ export function Library() {
 
     return(
         <>
-
             <Helmet>
                 <title>Library - Olivier Van D'huynslager</title>
                 <meta name="description" content="Personal library (index) of Books of Olivier Van D'huynslager."/>
