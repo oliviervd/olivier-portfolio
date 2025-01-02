@@ -18,6 +18,12 @@ class Pillar extends Component {
         this.canvas.resizeCanvas(this.wrapper.offsetWidth, newHeight)
     }
 
+    fetchBgColor = () => {
+        // Read the current value of the --bg-color property
+        const rootStyles = getComputedStyle(document.documentElement);
+        return rootStyles.getPropertyValue('--bg-color') || '#ffffff'; // Default to white if --bg-color is not set
+    };
+
     sketch = (p) => {
         var elementsX = 10;
         var elementsY = 100;
@@ -36,7 +42,9 @@ class Pillar extends Component {
 
         // p5.js draw function
         p.draw = () => {
-            p.background(255);
+
+            const bgColor = this.fetchBgColor();
+            p.background(p.color(bgColor.trim()));
 
             p.fill(color);
             p.noStroke();

@@ -3,6 +3,7 @@ import "../style/navigation.css"
 import {useState, useEffect, } from "preact/hooks";
 import {useLocation} from "preact-iso"
 import {useCachedPayload} from "../utils/fetchPayload.ts";
+import {ThemeToggle} from "./themeToggle.tsx";
 const Header = (props) => {
 
     const [isFixed, setIsFixed] = useState(false);
@@ -50,33 +51,40 @@ const Header = (props) => {
     return (
         <header className={isFixed ? "header fixed" : "header"}>
             <div className={"header_logo"}>
-                <h1 onClick={()=>props.home ? props.toggleComponent("home") : location.route('/') } className={"little-weave"}>⩨</h1>
-                <h1 onClick={()=>props.toggleComponent("home")} className={"typo_header"}>OVND</h1>
+                <h1 onClick={() => props.home ? props.toggleComponent("home") : location.route('/')}
+                    className={"little-weave"}>⩨</h1>
+                <h1 onClick={() => props.toggleComponent("home")} className={"typo_header"}>OVND</h1>
                 {readingNow.length > 0 && readingNow[currentIndex] && readingNow[currentIndex]["url"] &&
                     <h1 className={"typo_header reading"}> – is <span><a href={"/library"}>reading</a></span>: <span><a
                         href={readingNow[currentIndex]["url"]}
                         target="_blank">{readingNow[currentIndex]["title"]}</a></span>
                     </h1>
                 }
-            </div>
-            {props.home &&
-                <div className={!props.menuOpen ? "header__nav off-screen" : "header__nav on-screen"}>
-                    <h1 onClick={() => props.toggleComponent("music")} className={"typo_header"}><a>music</a></h1>
-                    <h1 onClick={() => props.toggleComponent("curatorial")} className={"typo_header"}><a>curatorial</a>
-                    </h1>
-                    <h1 onClick={() => props.toggleComponent("code")} className={"typo_header"}><a>code</a></h1>
-                    <h1 className={"typo_header"}><a href={"/library"}>library</a></h1>
-                    <h1 onClick={() => props.toggleComponent("resume")} className={"typo_header"}><a>cv</a></h1>
-                    {window.innerWidth > 768 &&
-                        <h1 className={"typo_header"}><a href={"/library"}>library</a></h1>
-                    }
-                </div>
-            }
-            {!props.home &&
-                <div className={!props.menuOpen ? "header__nav off-screen" : "header__nav on-screen"}>
 
-                </div>
-            }
+            </div>
+            <div className={!props.menuOpen ? "header__nav off-screen" : "header__nav on-screen"}>
+                {props.home &&
+                    <h1 onClick={() => props.toggleComponent("music")} className={"typo_header"}><a>music</a></h1>
+                }
+                {props.home &&
+                    <h1 onClick={() => props.toggleComponent("curatorial")} className={"typo_header"}>
+                        <a>curatorial</a>
+                    </h1>
+                }
+                {props.home &&
+                    <h1 onClick={() => props.toggleComponent("code")} className={"typo_header"}><a>code</a></h1>
+                }
+                {props.home &&
+                    <h1 onClick={() => props.toggleComponent("resume")} className={"typo_header"}><a>cv</a></h1>
+                }
+                {props.home && window.innerWidth > 768 &&
+                    <h1 className={"typo_header"}><a href={"/library"}>library</a></h1>
+                }
+                <h1>
+                    <ThemeToggle/>
+                </h1>
+            </div>
+
             <div onClick={() => props.toggleMenu()} className={"header__nav-button"}>
                 <HamburgerButton/>
             </div>

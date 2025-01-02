@@ -13,6 +13,16 @@ class Bookshelf extends Component {
         window.removeEventListener('resize', this.handleResize);
     }
 
+
+    fetchThemeColors = () => {
+        // Read the current value of the --bg-color property
+        const rootStyles = getComputedStyle(document.documentElement);
+        const bgColor = rootStyles.getPropertyValue('--bg-color')?.trim() || '#ffffff'; // Default to white
+        const textColor = rootStyles.getPropertyValue('--text-color')?.trim() || '#000000'; // Default to black
+        return { bgColor, textColor };
+
+    };
+
     sketch = (p) => {
         // fetch data from API
         let filteredBooks
@@ -54,12 +64,15 @@ class Bookshelf extends Component {
         p.setup = () => {
             p.createCanvas(window.innerWidth, window.innerHeight);
             shelfHeight = p.height / numberOfShelfs;
+
         }
 
         // draw
         p.draw = () => {
-            p.background(255);
-            p.stroke("black");
+            const { bgColor, textColor } = this.fetchThemeColors();
+
+            p.background(p.color(bgColor.trim()));
+            p.stroke(p.color(textColor.trim()));
             p.strokeWeight(3);
 
 
@@ -67,7 +80,7 @@ class Bookshelf extends Component {
             p.noStroke()
             p.fill("black")
             //p.text(`pages: ${this.props.totalPages}`, 30, 30)
-            p.stroke("black")
+            p.stroke(p.color(textColor.trim()));
 
             for (let y = 1; y < numberOfShelfs; y++) {
                 p.line(30, p.height/numberOfShelfs*y, p.width-50, p.height/numberOfShelfs*y);
@@ -116,7 +129,7 @@ class Bookshelf extends Component {
                 }
 
 
-                p.stroke('black');
+                p.stroke(p.color(textColor.trim()));
                 p.rect(xPos, (shelfHeight + (shelf* shelfHeight))-10, bookWidth , -bookHeight)
 
                 if (selectedBookIndex !== null) {

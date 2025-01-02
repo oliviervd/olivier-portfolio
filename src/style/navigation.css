@@ -2,8 +2,9 @@
 /* DESKTOP */
 
 header {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
     border-bottom: #333333 3px solid;
     margin: 0 10px;
 }
