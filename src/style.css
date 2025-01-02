@@ -14,14 +14,6 @@
     --font-size-l: 2rem;
 }
 
-/*@media (max-width: 1600px) {
-    :root {
-        --font-size-s: 1.2rem;
-        --font-size-m: 1.5rem;
-        --font-size-l: 2.5rem;
-    }
-}*/
-
 @media (max-width: 1600px) {
     :root {
         --font-size-s: 1rem;
@@ -38,8 +30,20 @@
     }
 }
 
+.app.light {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+}
+
+.app.dark {
+    --bg-color: #000000;
+    --text-color: white;
+}
+
 body {
-    background: white;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
     font-family: IBMPlexMono-Light, serif;
     overflow-x: hidden;
     padding-left: env(safe-area-inset-left);

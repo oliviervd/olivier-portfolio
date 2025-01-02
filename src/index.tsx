@@ -4,21 +4,24 @@ import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {Home} from "./pages/home";
 import {Project} from "./pages/project";
 import {Library} from "./pages/library.tsx";
+import {ThemeProvider} from "./components/themeProvider.tsx";
 
 const queryClient = new QueryClient();
 
 // main app
 function App({url}:{url:string})  {
     return(
-        <QueryClientProvider client={queryClient}>
-            <LocationProvider>
-                <Router>
-                    <Route path="/" component={Home} />
-                    <Route path="/project/:id?" component={Project} />
-                    <Route path="/library" component={Library} />
-                </Router>
-            </LocationProvider>
-        </QueryClientProvider>
+        <ThemeProvider>
+            <QueryClientProvider client={queryClient}>
+                <LocationProvider>
+                    <Router>
+                        <Route path="/" component={Home} />
+                        <Route path="/project/:id?" component={Project} />
+                        <Route path="/library" component={Library} />
+                    </Router>
+                </LocationProvider>
+            </QueryClientProvider>
+        </ThemeProvider>
     )
 }
 
