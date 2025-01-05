@@ -1,17 +1,19 @@
 {
   "version": 2,
-  "functions": {
-    "index.server.js": {
-      "runtime": "nodejs18.x"
+  "builds": [
+    {
+      "src": "vite.config.js",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
-  },
+  ],
   "routes": [
     {
-      "handle": "filesystem"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.server.js"
+      "dest": "/index.html",
+      "status": 200
     }
   ]
 }
