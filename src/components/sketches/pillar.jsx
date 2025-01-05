@@ -1,16 +1,21 @@
-import P5 from 'p5';
-import {h, Component} from "preact";
+import React, { Component } from "react";
 
 class Pillar extends Component {
+
     componentDidMount() {
-        this.canvas = new P5(this.sketch, this.wrapper)
-        window.addEventListener('resize', this.handleResize)
-    }
-    componentWillUnmount() {
-        this.canvas.remove()
-        window.removeEventListener('resize', this.handleResize);
+        // Dynamically load p5 to ensure it's client-side only
+        import("p5").then(({ default: P5 }) => {
+            this.canvas = new P5(this.sketch, this.wrapper); // Initialize p5 with the sketch
+            window.addEventListener("resize", this.handleResize);
+        });
     }
 
+    componentWillUnmount() {
+        if (this.canvas) {
+            this.canvas.remove(); // Safely remove canvas
+        }
+        window.removeEventListener("resize", this.handleResize);
+    }
 
     handleResize = () => {
         // resize canavas when the window is resized.
@@ -79,7 +84,7 @@ class Pillar extends Component {
 
     componentDidUpdate(prevProps) {
         // If var1 prop has changed, trigger a redraw
-        if (prevProps.var1 !== this.props.var1) {
+        if (prevProps.var1 !== this.props.var1 && this.canvas) {
             this.canvas.updateVar1(this.props.var1);
         }
     }

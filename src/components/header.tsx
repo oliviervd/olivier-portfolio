@@ -1,8 +1,8 @@
 import HamburgerButton from "../elements/hamburgerButton";
 import "../style/navigation.css"
-import {useState, useEffect, } from "preact/hooks";
-import {useLocation} from "preact-iso"
-import {useCachedPayload} from "../utils/fetchPayload.ts";
+import {useState, useEffect, } from "react";
+import {useLocation} from "react-router-dom"
+import {useCachedPayload} from "./utils/fetchPayload.ts";
 import {ThemeToggle} from "./themeToggle.tsx";
 const Header = (props) => {
 
@@ -10,7 +10,6 @@ const Header = (props) => {
 
     // State to keep track of the current index
     const [currentIndex, setCurrentIndex] = useState(0);
-    const location = useLocation();
 
     // fetch books "reading now".
     const BASE_URI = 'https://p01--admin--cvvgvqwlxhx2.code.run';

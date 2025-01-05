@@ -1,9 +1,9 @@
 import { LocationProvider, Route , Router, hydrate, prerender as ssr } from 'preact-iso';
 import { h } from 'preact';
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
-import {Home} from "./pages/home";
-import {Project} from "./pages/project";
-import {Library} from "./pages/library.tsx";
+import {Home} from "./components/main/home";
+import {Project} from "./components/main/project";
+import {Library} from "./components/main/library.tsx";
 import {ThemeProvider} from "./components/themeProvider.tsx";
 
 const queryClient = new QueryClient();

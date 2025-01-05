@@ -1,5 +1,4 @@
-import {createContext, h} from "preact";
-import {useContext, useState, useEffect} from "preact/hooks"
+import {useContext, useState, useEffect, createContext} from "react"
 
 const ThemeContext = createContext()
 

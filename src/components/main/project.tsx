@@ -1,4 +1,4 @@
-import Header from "../components/header";
+import Header from "../header";
 import {useEffect, useState} from "preact/hooks";
 import {fetchPayload} from "../utils/fetchPayload";
 import {useRoute} from "preact-iso";

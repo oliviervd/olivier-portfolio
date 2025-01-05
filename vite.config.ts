@@ -1,23 +1,11 @@
-import { defineConfig } from 'vite';
-import preact from '@preact/preset-vite';
+import react from '@vitejs/plugin-react'
+import vike from 'vike/plugin'
 
-export default defineConfig(({ command, mode }) => {
-	if (command === 'build' && mode === 'ssr') {
-		// SSR Build (server-side only)
-		return {
-			plugins: [preact()],
-			build: {
-				ssr: 'src/ssr-entry.ts', // Server-side entry point
-				outDir: 'dist-ssr'          // Output SSR build to a separate folder
-			}
-		};
-	}
+const config = {
+	plugins: [react(), vike()],
+	server: {
+		port: 5173 // Explicitly set development server port
+	},
+}
 
-	// Default client build (for hydration)
-	return {
-		plugins: [preact()],
-		build: {
-			outDir: 'dist',               // Output static assets to dist/
-		}
-	};
-});
+export default config

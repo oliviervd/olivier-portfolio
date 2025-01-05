@@ -1,4 +1,4 @@
-import {useEffect} from "preact/hooks";
+import {useEffect} from "react";
 
 const MusicPlayer = (props) => {
     //todo: when moving away from music component, make sure music keeps playing (add modal)

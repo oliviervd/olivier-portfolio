@@ -1,12 +1,15 @@
 
-import Header from "../components/header.tsx";
-import {useState} from "preact/hooks";
+import Header from "../header.tsx";
+import {useState} from "react";
 import {useCachedPayload} from "../utils/fetchPayload.ts";
-import Helmet from "preact-helmet/es/Helmet";
-import Bookshelf from "../sketches/bookshelf";
-import "../style/library.css"
-import {BookList} from "./books-list.tsx";
-import Pillar from "../sketches/pillar";
+import {Helmet} from "react-helmet"
+import Bookshelf from "../sketches/bookshelf"
+import {BookList} from "./books-list";
+import "../../style/library.css"
+import '../../style.css';
+import '../../style/normalize.css'
+import '../../style/project.css'
+import '../../style/music.css'
 
 export function Library() {
 
@@ -57,7 +60,7 @@ export function Library() {
         pages += books[i]["pages"] || []
     }
 
-    // todo: number of pages (tota)
+    // todo: number of main (tota)
     // todo: filter (non-fiction, fiction)
 
     return(
