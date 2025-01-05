@@ -11,18 +11,23 @@
 	"dependencies": {
 		"@tanstack/react-query": "^5.62.10",
 		"@vercel/node": "^5.0.0",
+		"@vitejs/plugin-react": "^4.3.4",
 		"escape-html": "^1.0.3",
 		"p5": "^1.9.2",
-		"preact": "^10.13.1",
-		"preact-helmet": "^4.0.0-alpha-3",
-		"preact-iso": "^2.8.1",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"react-helmet": "^6.1.0",
+		"react-router-dom": "^7.1.1",
 		"sitemap": "^8.0.0",
 		"slate": "^0.102.0",
 		"ts-node": "^10.9.2",
-		"vike": "^0.4.211"
+		"vike": "^0.4.211",
+		"vike-react": "^0.5.11",
+		"vite-plugin-ssr": "^0.4.142"
 	},
 	"devDependencies": {
-		"@preact/preset-vite": "^2.9.4",
+		"@types/react": "^19.0.2",
+		"@types/react-dom": "^19.0.2",
 		"typescript": "^5.3.3",
 		"vite": "^6.0.7"
 	}

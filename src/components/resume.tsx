@@ -1,5 +1,5 @@
 import "../style/resume.css"
-import serialize from "../utils/serialize";
+import serialize from "./utils/serialize";
 
 const Resume = (props) => {
     let r = props.resume

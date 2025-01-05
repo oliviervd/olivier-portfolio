@@ -1,16 +1,22 @@
-import P5 from 'p5';
-import {h, Component} from "preact";
+import {Component} from "react";
 import {shuffle} from "../utils/utils.ts";
 import {getYear} from "../utils/utils.ts";
 
 class Bookshelf extends Component {
+
     componentDidMount() {
-        this.canvas = new P5(this.sketch, this.wrapper)
-        window.addEventListener('resize', this.handleResize)
+        // Dynamically load p5 to ensure it's client-side only
+        import("p5").then(({ default: P5 }) => {
+            this.canvas = new P5(this.sketch, this.wrapper); // Initialize p5 with the sketch
+            window.addEventListener("resize", this.handleResize);
+        });
     }
+
     componentWillUnmount() {
-        this.canvas.remove()
-        window.removeEventListener('resize', this.handleResize);
+        if (this.canvas) {
+            this.canvas.remove(); // Safely remove canvas
+        }
+        window.removeEventListener("resize", this.handleResize);
     }
 
 
@@ -76,10 +82,10 @@ class Bookshelf extends Component {
             p.strokeWeight(3);
 
 
-            // pages
+            // old
             p.noStroke()
             p.fill("black")
-            //p.text(`pages: ${this.props.totalPages}`, 30, 30)
+            //p.text(`old: ${this.props.totalPages}`, 30, 30)
             p.stroke(p.color(textColor.trim()));
 
             for (let y = 1; y < numberOfShelfs; y++) {
@@ -210,8 +216,11 @@ class Bookshelf extends Component {
 
     render() {
         return (
-            <div style={{ height: '100vh', overflow: 'none' }} ref={(wrapper) => (this.wrapper = wrapper)}></div>
-        )
+            <div
+                style={{ height: "100vh", overflow: "hidden" }}
+                ref={(wrapper) => (this.wrapper = wrapper)}
+            ></div>
+        );
     }
 }
 

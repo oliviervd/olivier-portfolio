@@ -1,18 +1,16 @@
-import { render } from 'preact';
-import '../style.css';
-import '../style/normalize.css'
-import '../style/project.css'
-import '../style/music.css'
-import Header from "../components/header";
-import About from "../components/about";
-import Pillar from "../sketches/pillar";
-import Resume from "../components/resume";
-import {useState} from "preact/hooks";
-import {useEffect} from "preact/hooks";
-import {fetchPayload, useCachedPayload} from "../utils/fetchPayload";
+import '../../style.css';
+import '../../style/normalize.css'
+import '../../style/project.css'
+import '../../style/music.css'
+import Header from "../header";
+import About from "../about";
+import Pillar from "../sketches/pillar"
+import Resume from "../resume";
+import {useState, useEffect} from "react";
+import {useCachedPayload} from "../utils/fetchPayload";
 import serialize from "../utils/serialize";
-import Projects from "../components/projects";
-import CalculateSize from "../components/fetchSize";
+import Projects from "../projects";
+import CalculateSize from "../fetchSize";
 
 export function Home() {
 
@@ -70,22 +68,22 @@ export function Home() {
 		return (
 			<div className={'main--container'}>
 				<Header globals={globals} menuOpen={menuOpen} toggleMenu={() => setMenuOpen(!menuOpen)} toggleComponent={toggleComponent} home={true}/>
-				{!menuOpen &&
-					<>
-						< div class={showAbout ? "box__half" : "box__half hidden"}>
-							<About about={about}/>
-						</div>
-						{
-							!showResume &&
-							<div className={"projects__container"}>
-								<Projects about={about} pages={pages} type={type} music={music} scrollToID={scrollToID}/>
-							</div>
-						}
-						<Resume resume={resume} globals={globals} show={showResume} navigateToProject={navigateToProject}></Resume>
-					</>
 
-				}
-				<div class={"pillar__container"}>
+				<>
+					< div className={showAbout ? "box__half" : "box__half hidden"}>
+						<About about={about}/>
+					</div>
+					{
+						!showResume &&
+						<div className={"projects__container"}>
+							<Projects about={about} pages={pages} type={type} music={music} scrollToID={scrollToID}/>
+						</div>
+					}
+					<Resume resume={resume} globals={globals} show={showResume} navigateToProject={navigateToProject}></Resume>
+
+				</>
+
+				<div className={"pillar__container"}>
 					<Pillar var1={var1}/>
 				</div>
 				<CalculateSize/>
