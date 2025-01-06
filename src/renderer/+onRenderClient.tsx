@@ -10,10 +10,10 @@ async function onRenderClient(pageContext: PageContextClient)  {
 
     hydrateRoot(
         document.getElementById('app')!,
-        <StrictMode>
+
             <PageShell>
                 <Page />
             </PageShell>
-        </StrictMode>
+
     );
 };
