@@ -1,8 +1,8 @@
 import react from '@vitejs/plugin-react'
-import vike from 'vike/plugin'
+import ssr from 'vike/plugin'
 
 const config = {
-	plugins: [react(), vike()],
+	plugins: [react(), ssr()],
 	base: '/',
 	build: {
 		outDir: 'dist',
