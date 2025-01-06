@@ -3,7 +3,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "node_modules/.bin/vite",
-		"build": "vite build && vite-plugin-ssr build",
+		"build": "vite build",
 		"preview": "node_modules/.bin/vite preview",
 		"serve": "vite serve",
 		"clean": "npm cache clean --force && rm -rf node_modules package-lock.json && npm install"
