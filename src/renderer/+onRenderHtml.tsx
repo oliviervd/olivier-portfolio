@@ -18,11 +18,13 @@ async function onRenderHtml(pageContext: PageContextServer) {
     const documentHtml =  escapeInject`<!DOCTYPE html>
     <html lang="en">
       <head>
+       <!--  
         <meta charset="UTF-8">
         <meta name="description" content="${dangerouslySkipEscape(pageContext.documentProps?.description || '')}" />
         <meta property="og:title" content="${dangerouslySkipEscape(pageContext.documentProps?.title || '')}" />
         <meta property="og:description" content="${dangerouslySkipEscape(pageContext.documentProps?.description || '')}" />
         <title>${dangerouslySkipEscape(pageContext.documentProps?.title || '')}</title>
+      -->
       </head>
       <body>
         <div id="app">${dangerouslySkipEscape(pageHtml)}</div>
