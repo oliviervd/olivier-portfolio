@@ -1,4 +1,5 @@
 import type { Config } from 'vike/types'
+import vikeReact from 'vike-react/config'
 
 /*
 export default {
@@ -8,5 +9,6 @@ export default {
 */
 
 export default {
-    passToClient: ['pageProps']
+    passToClient: ['pageProps'],
+    extends: vikeReact
 }
