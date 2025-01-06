@@ -68,12 +68,6 @@ export function Home() {
 	if (globals[0]){
 		return (
 			<>
-				<Helmet>
-					<title>Olivier Van D'huynslager - Homepage</title>
-					<meta name="description" content="Homepage of Olivier Van D'huynslager - website"/>
-					<meta property="og:title" content="Olivier Van D'huynslager - Homepage"/>
-					<meta property="og:description" content="Homepage of Olivier Van D'huynslager - website"/>
-				</Helmet>
 				<div className={'main--container'}>
 					<Header globals={globals} menuOpen={menuOpen} toggleMenu={() => setMenuOpen(!menuOpen)}
 							toggleComponent={toggleComponent} home={true}/>
