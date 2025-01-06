@@ -10,10 +10,8 @@ async function onRenderClient(pageContext: PageContextClient)  {
 
     hydrateRoot(
         document.getElementById('app')!,
-
             <PageShell>
                 <Page />
             </PageShell>
-
     );
 };
