@@ -210,7 +210,9 @@ class Bookshelf extends Component {
         if (prevProps.tags !== this.props.tags || prevProps.books !== this.props.books) {
             // Remove and reinitialize the sketch to apply the new filters
             this.canvas.remove();
-            this.canvas = new P5(this.sketch, this.wrapper);
+            import("p5").then(({ default: P5 }) => {
+                this.canvas = new P5(this.sketch, this.wrapper); // Initialize p5 with the sketch
+            });
         }
     }
 
