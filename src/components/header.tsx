@@ -50,8 +50,8 @@ const Header = (props) => {
     return (
         <header className={isFixed ? "header fixed" : "header"}>
             <div className={"header_logo"}>
-                <h1 onClick={() => props.home ? props.toggleComponent("home") : location.route('/')}
-                    className={"little-weave"}>⩨</h1>
+                <a href={"/"}
+                    className={"little-weave"}>⩨</a>
                 <h1 onClick={() => props.toggleComponent("home")} className={"typo_header"}>OVND</h1>
                 {readingNow.length > 0 && readingNow[currentIndex] && readingNow[currentIndex]["url"] &&
                     <h1 className={"typo_header reading"}> – is <span><a href={"/library"}>reading</a></span>: <span><a
